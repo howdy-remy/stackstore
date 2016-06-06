@@ -3,7 +3,7 @@ var _ = require('lodash');
 var Sequelize = require('sequelize');
 
 module.exports = function (db) {
-	db.define('products', {
+	db.define('product', {
 		title: {
 			type: Sequelize.STRING,
 			allowNull: false
@@ -18,11 +18,13 @@ module.exports = function (db) {
 			type: Sequelize.INTEGER
 		},
 		category: {
-			type: Sequelize.ARRAY //may be multiple categories
+			type: Sequelize.ARRAY(Sequelize.STRING) //may be multiple categories
 		},
 		photoUrl: {
 			type: Sequelize.STRING 
 		}
 	});
 };
+
+
 
