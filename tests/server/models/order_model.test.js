@@ -1,9 +1,9 @@
 'use strict';
 
 var expect = require('chai').expect;
-var Order = require('...');///fill this in
-var User = require('....')//fill this in
-var db = require('....');//fill this in
+var Order = require('../../../server/db/models/order');
+var User = require('../../../server/db/models/user');
+var db = require('../../../server/db/_db.js');
 
 describe('Orders', function(){
 	before(function(){
@@ -25,7 +25,7 @@ it('belongs to a user', function() {
       .then(function() {
         return Order.findOne({ 
           where: { items: ['Blue Wizards', 'Green Wizards'] },
-          include: { model: User}
+          include: { model: User }
         });
       })
       .then(function(order){
@@ -34,43 +34,22 @@ it('belongs to a user', function() {
       });
   });
 
+//how do we make the order belong to a guest session(authenticated vs unauthenticated?)
 
-
-
-
-
-
-
-
-	it('has category than can accept more than one category stored in an array', function(){
-		return Promise.all([
-			Order.create({
-				category: ['Toys']
-			}),
-			Order.create({
-				category: ['Toys', 'Candy', 'Jokes']
+//is the below test sufficient? 
+	it('contains line items, including price, current product ID and quantity', function(){
+			return Order.create({
+				items: [
+          {productId: 1, price: 10.00, quantity: 2}, 
+          {productId: 2, price: 20.00, quantity: 1}
+        ]
 			})
-			])
-		.spread(function(Order1, Order2){
-			expect(Order1.category).to.equal(['Toys']);
-			expect(Order2.category).to.equal(['Toys', 'Candy', 'Jokes']);
+		.then(function(savedOrder){
+			expect(Order.items).to.equal([
+          {productId: 1, price: 10.00, quantity: 2}, 
+          {productId: 2, price: 20.00, quantity: 1}
+        ]);
 		});
 	});
-	it('has photoUrl of type url', function(){
-		return Order.create({
-			photoUrl: 'https://img.buzzfeed.com/buzzfeed-static/static/2014-06/20/18/enhanced/webdr05/enhanced-buzz-wide-28782-1403302157-11.jpg'
-		}).then(function(savedOrder){
-			expect(savedOrder.photoUrl).to.equal('https://img.buzzfeed.com/buzzfeed-static/static/2014-06/20/18/enhanced/webdr05/enhanced-buzz-wide-28782-1403302157-11.jpg');
-		});
-	});
-	it('requires title, description, price, quantity, and category', function () {
 
-    var Order = Order.build({});
-
-    return Order.validate()
-      .then(function(err) {
-        expect(err).to.exist;
-        expect(err.errors).to.contain.a.thing.with.property('title', 'description', 'price', 'quantity', 'category');
-      });
-  });
 }); //end of describe
