@@ -1,11 +1,10 @@
 'use strict';
-var _ = require('lodash');
 var Sequelize = require('sequelize');
+var db = require('../_db');
 
-module.exports = function (db) {
-	db.define('review', {
-		text: {
-			type: Sequelize.TEXT
-		}
-	});
-};
+
+module.exports = db.define('review', {
+	text: {
+		type: Sequelize.TEXT
+	}
+});

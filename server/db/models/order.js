@@ -1,14 +1,9 @@
 'use strict';
-var _ = require('lodash');
 var Sequelize = require('sequelize');
-// var User = require('./user.js');
+var db = require('../_db');
 
-module.exports = function (db) {
-	db.define('order', {
-		items : {
-			type: Sequelize.ARRAY(Sequelize.JSON)
-		}
-
-	});
-
-};
+module.exports = db.define('order', {
+	items: {
+		type: Sequelize.ARRAY(Sequelize.JSON)
+	}
+});

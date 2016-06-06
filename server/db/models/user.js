@@ -2,13 +2,13 @@
 var crypto = require('crypto');
 var _ = require('lodash');
 var Sequelize = require('sequelize');
+var db = require('../_db');
 
-module.exports = function (db) {
 
+module.exports =
 	db.define('user', {
 		email: {
-			type: Sequelize.STRING,
-			unique: true
+			type: Sequelize.STRING
 		},
 		password: {
 			type: Sequelize.STRING
@@ -54,7 +54,3 @@ module.exports = function (db) {
 			}
 		}
 	});
-
-
-
-};
