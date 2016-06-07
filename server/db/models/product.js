@@ -9,16 +9,20 @@ module.exports = db.define('product', {
 		allowNull: false
 	},
 	description: {
-		type: Sequelize.TEXT
+		type: Sequelize.TEXT,
+		allowNull: false
 	},
 	price: {
-		type: Sequelize.DECIMAL //need precision and zerofill?
+		type: Sequelize.DECIMAL, //need precision and zerofill?
+		allowNull: false
 	},
 	quantity: {
-		type: Sequelize.INTEGER
+		type: Sequelize.INTEGER,
+		allowNull: false
 	},
 	category: {
-		type: Sequelize.ARRAY(Sequelize.STRING) //may be multiple categories
+		type: Sequelize.ARRAY(Sequelize.STRING), //may be multiple categories
+		allowNull: false
 	},
 	photoUrl: {
 		type: Sequelize.STRING
