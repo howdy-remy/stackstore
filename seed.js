@@ -37,7 +37,7 @@ var data = {
 		description: "Need to create a diversion to sneak past some Ministry employees? Then here's just the thing! You can twist the key at the top to set it up. Rolling action is friction activated. You just pull it back, release and off it goes.",
 		price: 34.99,
 		quantity: 10,
-		category: ['general'],
+		category: ['general, defense'],
 		photoUrl: 'http://i.imgur.com/1EoJoj2.jpg'
 	},
 	{
@@ -86,7 +86,7 @@ var data = {
 		price: 49.99,
 		quantity: 10,
 		category: ['edibles, wonderwitch'],
-		photoUrl: 'http://i.imgur.com/94nKnik.jpg'
+		photoUrl: 'http://i.imgur.com/zAoA1rg.jpg'
 	},
 	{
 		title: 'Kissing Concoction Love Potion',
@@ -94,7 +94,7 @@ var data = {
 		price: 49.99,
 		quantity: 10,
 		category: ['edibles, wonderwitch'],
-		photoUrl: 'http://i.imgur.com/94nKnik.jpg'
+		photoUrl: 'http://i.imgur.com/zAoA1rg.jpg'
 	},
 	{
 		title: 'Beguiling Bubbles Love Potion',
@@ -102,7 +102,7 @@ var data = {
 		price: 49.99,
 		quantity: 10,
 		category: ['edibles, wonderwitch'],
-		photoUrl: 'http://i.imgur.com/94nKnik.jpg'
+		photoUrl: 'http://i.imgur.com/zAoA1rg.jpg'
 	},
 	{
 		title: 'Twilight Moonbeams Love Potion',
@@ -110,7 +110,15 @@ var data = {
 		price: 49.99,
 		quantity: 10,
 		category: ['edibles, wonderwitch'],
-		photoUrl: 'http://i.imgur.com/94nKnik.jpg'
+		photoUrl: 'http://i.imgur.com/zAoA1rg.jpg'
+	},
+	{
+		title: 'Ton-Tongue Toffee',
+		description: "Grow your tongue four feet long! Or somebody elses...",
+		price: 8.99,
+		quantity: 10,
+		category: ['edibles'],
+		photoUrl: 'http://i.imgur.com/FFZi2dx.jpg'
 	},
 	{
 		title: 'Whoopie Cushion',
@@ -135,6 +143,38 @@ var data = {
 		quantity: 10,
 		category: ['muggle'],
 		photoUrl: 'http://i.imgur.com/sSsdTXe.jpg'
+	},
+	{
+		title: 'Pygmy Puff',
+		description: "Miniature puffskeins with pink or purle fur. Adorable!",
+		price: 34.99,
+		quantity: 10,
+		category: ['wonderwitch'],
+		photoUrl: 'http://i.imgur.com/sSsdTXe.jpg'
+	},
+	{
+		title: 'Peruvian Instant Darkness Powder',
+		description: "Caught in a sticky situation and need a quick escape? This powder will fill a room with darkness allowing you to run to safety.",
+		price: 49.99,
+		quantity: 10,
+		category: ['general, defense'],
+		photoUrl: 'http://i.imgur.com/PY1EKYv.jpg'
+	},
+	{
+		title: 'Shield Hats',
+		description: "Hats with a built in shield-charm.",
+		price: 19.99,
+		quantity: 10,
+		category: ['general, defense, apparel'],
+		photoUrl: 'http://i.imgur.com/2TsxVpr.jpg'
+	},
+	{
+		title: 'U No Poo',
+		description: "WHY ARE YOU WORRYING ABOUT YOU-KNOW-WHO? YOU SHOULD BE WORRYING ABOUT U-NO-POO, THE CONSTIPATION SENSATION THAT'S GRIPPING THE NATION!",
+		price: 9.99,
+		quantity: 10,
+		category: ['edibles'],
+		photoUrl: 'http://i.imgur.com/nwRGaeT.jpg'
 	}]
 };
 
