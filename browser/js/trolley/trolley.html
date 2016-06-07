@@ -1,0 +1,26 @@
+<table class='table'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th></th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in trolley">
+      <td> 
+        <img ng-src="{{item.photoUrl}}">
+      </td>
+      <td>{{ item.title }}</td>
+      <td>{{ item.price }}</td>
+      <td>{{ item.quantity }}</td>  <!-- make this interactive later -->
+      <td>
+        <button class="btn btn-default btn-xs" ng-click="remove(item)">
+            <span class="glyphicon glyphicon-remove"></span>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
