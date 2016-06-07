@@ -3,6 +3,7 @@
 var expect = require('chai').expect;
 
 var Product = require('../../../server/db/models/product');
+//fix later
 var Promise = require('bluebird');
 var db = require('../../../server/db/_db.js');
 

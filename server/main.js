@@ -18,7 +18,6 @@ var startServer = function () {
     server.listen(PORT, function () {
         console.log(chalk.blue('Server started on port', chalk.magenta(PORT)));
     });
-
 };
 
 db.sync().then(createApplication).then(startServer).catch(function (err) {

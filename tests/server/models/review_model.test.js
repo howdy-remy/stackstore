@@ -4,12 +4,10 @@ var expect = require('chai').expect;
 var db = require('../../../server/db/_db.js');
 var Promise = require('bluebird');
 
-var Index = require('../../../server/db/index.js');
-
-var Review = Index.Review; 
-var User = Index.User; 
-var Product = Index.Product; 
-
+var Index = require('../../../server/db');
+var Product = require('../../../server/db/models/product.js');
+var User = require('../../../server/db/models/user.js'); 
+var Review = require('../../../server/db/models/review.js'); 
 
 describe('Review', function(){
 	before(function(){
