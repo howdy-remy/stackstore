@@ -3,17 +3,18 @@
 var expect = require('chai').expect;
 var Promise = require('bluebird');
 var db = require('../../../server/db/_db.js');
-var Index = require('../../../server/db/index.js');
-
-var Order = Index.Order; 
-var User = Index.User; 
+var Index = require('../../../server/db');
+var Order = require('../../../server/db/models/order.js');
+var User = require('../../../server/db/models/user.js'); 
 
 describe('Orders', function(){
 
   var order; 
 
   before(function(){
-    return Order.create({
+    return Order.sync({force: true})
+    .then(function(something){
+      return Order.create({
       items: [{productId: 1, price: 10.00, quantity: 2}, {productId: 2, price: 20.00, quantity: 1}],
       street: '42 Wallaby Way', 
       city: 'Sydney',
@@ -23,6 +24,7 @@ describe('Orders', function(){
       email: 'psherman@findme.com', 
       firstName: 'Peter', 
       lastName: 'Sherman'
+    });
     })
     .then(function(createdOrder){
       order = createdOrder;

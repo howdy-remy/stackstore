@@ -10,10 +10,4 @@ Order.belongsTo(User);
 Review.belongsTo(User);
 Review.belongsTo(Product);
 
-module.exports = {
-	db: db, 
-	Order: Order, 
-	User: User, 
-	Product: Product, 
-	Review: Review
-}
+module.exports = db;
