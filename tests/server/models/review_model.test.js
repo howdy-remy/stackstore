@@ -1,10 +1,15 @@
 'use strict';
 
 var expect = require('chai').expect;
-var Review = require('../../../server/db/models/review');
-var Product = require('../../../server/db/models/product');
-var User = require('../../../server/db/models/user');
 var db = require('../../../server/db/_db.js');
+var Promise = require('bluebird');
+
+var Index = require('../../../server/db/index.js');
+
+var Review = Index.Review; 
+var User = Index.User; 
+var Product = Index.Product; 
+
 
 describe('Review', function(){
 	before(function(){
@@ -34,19 +39,21 @@ describe('Review', function(){
 	      })
 	      .then(function(review){
 	        expect(review.userId).to.exist;
-	        expect(review.userId.email).to.equal('harrypotter@hogwarts.com');
+	        expect(review.user.email).to.equal('harrypotter@hogwarts.com');
 	      });
 	});
 
 	it('belongs to a product', function() {
-	    var user;
-	    return Product.create({ 
-	    	title: 'Extendable Ears', 
-	    	description: 'Listen in on any conversation', 
-	    	price: 9.99, 
-	    	quantity: 20, 
-	    	category: ['Toys']
-	    })
+	    var product;
+	    var reviewId;
+
+		    return Product.create({ 
+		    	title: 'Extendable Ears', 
+		    	description: 'Listen in on any conversation', 
+		    	price: 9.99, 
+		    	quantity: 20, 
+		    	category: ['Toys']
+		    })
 	      .then(function(p) {
 	        product = p;
 	        return Review.create({
@@ -54,18 +61,20 @@ describe('Review', function(){
 	        });
 	      })
 	      .then(function(review) {
+	      	reviewId = review.dataValues.id;
 	        return review.setProduct(product);
 	      })
 	      .then(function() {
 	        return Review.findOne({ 
-	          where: { text: text },
+	          where: { id: reviewId },
 	          include: { model: Product }
 	        });
 	      })
 	      .then(function(review){
 	        expect(review.productId).to.exist;
-	        expect(review.productId.title).to.equal('Extendable Ears');
+	        expect(review.product.title).to.equal('Extendable Ears');
 	      });
+
 	});
 
 	it('has text of type text', function(){
