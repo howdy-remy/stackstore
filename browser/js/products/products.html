@@ -1,15 +1,21 @@
 <div class="container">
-    <div class="row">
-        <form>
-            <ul>
-                <p>Refine by Category:</p>
-                <li ng-repeat="category in categories">
-                    <input type="checkbox" ng-model="category.checked"/> {{category.name}} <!-- {{category.checked}} -->
-                </li>
-            </ul>
-        </form>
-    </div>
-    <div class="row">
-        <products-item ng-show="isFiltered(product)" ng-repeat="product in products" model="product"></products-item>
-    </div>
+  <div class="row">
+    <form>
+      <ul>
+        <p>Refine by Category:</p>
+        <li ng-repeat="category in categories">
+            <input type="checkbox" ng-model="category.checked"/> {{category.name}} <!-- {{category.checked}} -->
+        </li>
+      </ul>
+      <ul>Search all products:
+        <input type="text" class="form-control" placeholder="by name" ng-model="nameSearch">
+      </ul>
+    </form>
+  </div>
+
+  <div class="row">
+    <products-item ng-show="isFiltered(product) " ng-repeat="product in products | filter: {title: nameSearch}" model="product">
+      <span ng-bind="searchProducts"></span>
+    </products-item>
+  </div>
 </div>
