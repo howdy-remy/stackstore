@@ -10,7 +10,6 @@
     </tr>
   </thead>
   <tbody>
-  <form name='cart'>
     <tr ng-repeat="item in trolley">
       <td> 
         <img ng-src="{{item.photoUrl}}">
@@ -27,8 +26,7 @@
         </button>
       </td>
     </tr>
-  </form>
   </tbody>
 </table>
 
-<add-to-cart item="product"></add-to-cart> <!-- move this later -->
+<add-to-cart item="product"></add-to-cart> <!-- EXAMPLE DIRECTIVE FOR TESTING -->
