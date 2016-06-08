@@ -6,5 +6,12 @@ var db = require('../_db');
 module.exports = db.define('review', {
 	text: {
 		type: Sequelize.TEXT
+	}, 
+	stars: {
+		type: Seuqlieze.INTEGER, 
+		validate: {
+			min: 1, 
+			max: 5
+		}
 	}
 });
