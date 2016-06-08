@@ -5,8 +5,7 @@
   "main": "server/start.js",
   "scripts": {
     "start": "nodemon --watch server -e js,html server/start.js",
-    "postinstall": "gulp build", 
-    "test": "./node_modules/.bin/mocha -w tests/server/models/*.test.js"
+    "postinstall": "gulp build"
   },
   "engines": {
     "node": ">=4.0.0"
