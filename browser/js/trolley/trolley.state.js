@@ -5,9 +5,8 @@ app.config(function ($stateProvider) {
         templateUrl: 'js/trolley/trolley.html',
         controller: 'TrolleyCtrl',
         resolve: {
-        	trolley: function($http){
-        		return $http.get('/api/trolley')
-        		// .then(console.log);
+        	trolley: function(TrolleyFactory){
+                return TrolleyFactory.fetchAllItems();
         	}
         }
     });
