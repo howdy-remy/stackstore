@@ -1,0 +1,32 @@
+
+<table class='table' id='trolley-table'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th></th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in trolley">
+      <td> 
+        <img ng-src="{{item.photoUrl}}">
+      </td>
+      <td>{{ item.title }}</td>
+      <td>{{ item.price }}</td>
+      <td><input type='number' ng-model='quantity[item.id]' ng-value="{{ item.quantity }}"></td> 
+      <td>
+        <button class="btn btn-default btn-xs" ng-click="removeFromCart(item)" title='delete trolley'>
+            <span class="glyphicon glyphicon-remove"></span>
+        </button>
+        <button class="btn btn-default btn-xs" ng-click="updateCart(item)" title='update trolley'>
+            <span class="glyphicon glyphicon-edit"></span>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<add-to-cart item="product"></add-to-cart> <!-- EXAMPLE DIRECTIVE FOR TESTING -->
