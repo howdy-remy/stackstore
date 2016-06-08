@@ -1,3 +1,4 @@
+
 <table class='table' id='trolley-table'>
   <thead>
     <tr>
@@ -9,22 +10,25 @@
     </tr>
   </thead>
   <tbody>
+  <form name='cart'>
     <tr ng-repeat="item in trolley">
       <td> 
         <img ng-src="{{item.photoUrl}}">
       </td>
       <td>{{ item.title }}</td>
       <td>{{ item.price }}</td>
-      <td><input type="number" value="{{ item.quantity }}"></td> 
+      <td><input type='number' ng-model='quantity[item.id]' ng-value="{{ item.quantity }}"></td> 
       <td>
-        <button class="btn btn-default btn-xs" ng-click="remove(item)" title='delete trolley'>
+        <button class="btn btn-default btn-xs" ng-click="removeFromCart(item)" title='delete trolley'>
             <span class="glyphicon glyphicon-remove"></span>
         </button>
-        <button class="btn btn-default btn-xs" ng-click="update(item)" title='update trolley'>
+        <button class="btn btn-default btn-xs" ng-click="updateCart(item)" title='update trolley'>
             <span class="glyphicon glyphicon-edit"></span>
         </button>
       </td>
     </tr>
+  </form>
   </tbody>
 </table>
-<add-to-cart></add-to-cart>
+
+<add-to-cart item="product"></add-to-cart> <!-- move this later -->
