@@ -11,6 +11,7 @@ router.get('/', function(req, res, next){
 
 //adding an item to the trolley
 router.post('/', function(req, res, next){
+	req.body.amount = req.body.amount ? req.body.amount+1 : 1; //amount of product wanted (add only one to cart at start)
 	if(!req.session.trolley){
 		req.session.trolley = [];
 	}
@@ -18,14 +19,14 @@ router.post('/', function(req, res, next){
 	res.sendStatus(201);
 });
 
-///to update quantity in cart
+///to update quantity/amount in cart
 router.put('/', function(req, res, next){ 
 	let index = null;
 	req.session.trolley.forEach(function(item, i){
 		if(item.id === req.body.id){ index = i; }
 	});
 	if(index !== null) {
-		req.session.trolley[index].quantity = req.body.quantity[req.body.id];
+		req.session.trolley[index].amount = req.body.amount[req.body.id];
 		res.sendStatus(204);
 	} else {
 		res.sendStatus(404); 

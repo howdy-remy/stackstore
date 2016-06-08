@@ -10,8 +10,8 @@ app.factory('TrolleyFactory', function($http, $state){
 				$state.go('trolley');
 			});
 		},
-		updateCart: function(itemToBeUpdated, quantity){
-			return $http.put('/api/trolley', {id: itemToBeUpdated.id, quantity: quantity});
+		updateCart: function(itemToBeUpdated, amount){
+			return $http.put('/api/trolley', {id: itemToBeUpdated.id, amount: amount});
 		}, 
 		removeFromCart: function(itemToBeRemoved){
 			return $http.delete('/api/trolley/'+ itemToBeRemoved.id);
