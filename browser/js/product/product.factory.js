@@ -2,9 +2,6 @@
 
 app.factory('ProductFactory', function ($http) {
 
-  var ProductFactory = {};
-  var allCategories = [];
-
   ProductFactory.fetchAll = function () {
     return $http.get('/api/products')
     .then(function (response) { 
@@ -24,6 +21,8 @@ app.factory('ProductFactory', function ($http) {
   };
 
   ProductFactory.fetchCategories = function () {
+    var ProductFactory = {};
+    var allCategories = [];
     return $http.get('/api/products')
     .then(function (response) { 
       return response.data; 
