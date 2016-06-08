@@ -1,13 +1,17 @@
 <div class="container">
 
-  <div class="col-xs-4">
-    <img src="{{product.photoUrl}}" />
-  </div>
+	<div class="row">
 
-  <div class="col-xs-8">
-  	<h2>{{product.title}}</h2>
-  	<h3>{{product.price}}</h3>
-	<p>{{product.description}}</p>
-  </div>
+	  <div class="col-md-4 single-product-page">
+	    <img src="{{product.photoUrl}}" />
+	  </div>
+
+	  <div class="col-md-8">
+	  	<h2>{{product.title}}</h2>
+	  	<h3>{{product.price | currency }}</h3>
+		<p>{{product.description}}</p>
+	  </div>
+
+	</div>
 
 </div>
