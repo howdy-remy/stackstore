@@ -34,7 +34,7 @@ var data = {
         description: "Need to create a diversion to sneak past some Ministry employees? Then here's just the thing! You can twist the key at the top to set it up. Rolling action is friction activated. You just pull it back, release and off it goes.",
         price: 34.99,
         quantity: 10,
-        category: ['general, defense'],
+        category: ['general', 'defense'],
         photoUrl: 'http://i.imgur.com/1EoJoj2.jpg'
     },
     {
@@ -82,7 +82,7 @@ var data = {
         description: "Love Potion from our exclusive WonderWitch line!",
         price: 49.99,
         quantity: 10,
-        category: ['edibles, wonderwitch'],
+        category: ['edibles', 'wonderwitch'],
         photoUrl: 'http://i.imgur.com/zAoA1rg.jpg'
     },
     {
@@ -90,7 +90,7 @@ var data = {
         description: "Love Potion from our exclusive WonderWitch line!",
         price: 49.99,
         quantity: 10,
-        category: ['edibles, wonderwitch'],
+        category: ['edibles', 'wonderwitch'],
         photoUrl: 'http://i.imgur.com/zAoA1rg.jpg'
     },
     {
@@ -98,7 +98,7 @@ var data = {
         description: "Love Potion from our exclusive WonderWitch line!",
         price: 49.99,
         quantity: 10,
-        category: ['edibles, wonderwitch'],
+        category: ['edibles', 'wonderwitch'],
         photoUrl: 'http://i.imgur.com/zAoA1rg.jpg'
     },
     {
@@ -106,7 +106,7 @@ var data = {
         description: "Love Potion from our exclusive WonderWitch line!",
         price: 49.99,
         quantity: 10,
-        category: ['edibles, wonderwitch'],
+        category: ['edibles', 'wonderwitch'],
         photoUrl: 'http://i.imgur.com/zAoA1rg.jpg'
     },
     {
@@ -154,7 +154,7 @@ var data = {
         description: "Caught in a sticky situation and need a quick escape? This powder will fill a room with darkness allowing you to run to safety.",
         price: 49.99,
         quantity: 10,
-        category: ['general, defense'],
+        category: ['general', 'defense'],
         photoUrl: 'http://i.imgur.com/PY1EKYv.jpg'
     },
     {
@@ -162,7 +162,7 @@ var data = {
         description: "Hats with a built in shield-charm.",
         price: 19.99,
         quantity: 10,
-        category: ['general, defense, apparel'],
+        category: ['general', 'defense', 'apparel'],
         photoUrl: 'http://i.imgur.com/2TsxVpr.jpg'
     },
     {
