@@ -1,14 +1,12 @@
 
 app.controller('TrolleyCtrl', function($scope, TrolleyFactory, trolley){
 	$scope.trolley = trolley;
-	$scope.quantity={};
+	$scope.quantity = {};
 	$scope.updateCart = function(item){
-		console.log('scope for update cart', $scope.quantity);
 		return TrolleyFactory.updateCart(item, $scope.quantity);
 	};
 
 	$scope.removeFromCart = function(item){
-		console.log('remove from cart item', item)
 		return TrolleyFactory.removeFromCart(item)
 		.then(function(){
 			$scope.trolley = $scope.trolley.filter(function(e){
@@ -17,6 +15,7 @@ app.controller('TrolleyCtrl', function($scope, TrolleyFactory, trolley){
 		});
 	};
 
+	//EXAMPLE PRODUCT FOR TESTING ADD TO CART//
 	$scope.product = {
 			id: 1,
 			title: 'Decoy Detonator',
