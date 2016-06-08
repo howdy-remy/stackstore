@@ -1,25 +1,10 @@
 'use strict';
 
-app.controller('ProductsCtrl', function ($scope, allProducts) {
+app.controller('ProductsCtrl', function ($scope, allProducts, allCategories) {
 	
 	$scope.products = allProducts;
 
-	$scope.categories = [{
-			name: 'edibles',
-			checked: false
-		},
-		{
-			name: 'apparel',
-			checked: false
-		},
-		{
-			name: 'defense',
-			checked: false
-		},
-		{
-			name: 'wonderwitch',
-			checked: false
-		}];
+	$scope.categories = allCategories;
 
 	$scope.isFiltered = function(product){
 
