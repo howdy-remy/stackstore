@@ -1,12 +1,15 @@
 <div class="container">
-
-<!-- 	<nav-bar>
-		<p>Filter By: </p>
-	</nav-bar>
- -->
-	<form>
-		<li></li>
-	</form>
-
-	<products-item ng-repeat="product in products" model="product"></products-item>
+    <div class="row">
+        <form>
+            <ul>
+                <p>Refine by Category:</p>
+                <li ng-repeat="category in categories">
+                    <input type="checkbox" ng-model="category.checked"/> {{category.name}} <!-- {{category.checked}} -->
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div class="row">
+        <products-item ng-show="isFiltered(product)" ng-repeat="product in products" model="product"></products-item>
+    </div>
 </div>
