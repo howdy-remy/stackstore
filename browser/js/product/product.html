@@ -17,10 +17,18 @@
 
 	<div class="review">
 
-	  <div class="col-md-12 single-product-page">
-	  	<h2>Customer Reviews</h2>
-	  	<button>Write a review</button>
-	  </div>
+	  	<div class="col-md-12 all-reviews">
+		  	<h2>Customer Reviews</h2>
+
+			<div>
+				<ul class="nav nav-tabs">
+			    <li ui-sref-active="active"><a ui-sref="product.reviews">ALL</a></li>
+			    <li ui-sref-active="active"><a ui-sref="product.writeReview">WRITE A REVIEW</a></li>
+				</ul>
+				<ui-view></ui-view>
+			</div>
+
+	  	</div>
 
 
 	</div>

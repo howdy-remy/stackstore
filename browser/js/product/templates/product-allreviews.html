@@ -1,0 +1,21 @@
+<div>
+	<div class="alert alert-danger">
+	<!-- <div class="alert alert-danger" ng-if="reviews.length === 0"> -->
+	    No reviews yet, be the first to review this product!
+	</div>
+
+	<div class="alert alert-danger">
+	<!-- <div class="alert alert-danger" ng-if="reviews.length === 0 && !loggedIn()"> -->
+	    No reviews yet!
+	</div>
+
+	<review-list></review-list>
+
+	<div class="col-sm-12" ng-repeat="review in reviews">
+	  <h3 class="pdt-title col-sm-6">{{review.username}}</h3>
+	  <h3 class="pdt-title col-sm-6">{{review.star}}</h3>
+	  <h5 class="col-sm-12"><small><i>{{review.email}}</i></small></h5>
+	  <p class="col-sm-12">{{review.message}}</p>
+	</div>
+
+</div>
