@@ -6,7 +6,6 @@ var dbURI = 'postgres://localhost:5432/testing-fsg';
 var db = new Sequelize(dbURI, {
     logging: false
 });
-require('../../../server/db/models/user')(db);
 
 var supertest = require('supertest');
 
@@ -20,7 +19,7 @@ describe('Members Route', function () {
 
     beforeEach('Create app', function () {
         app = require('../../../server/app')(db);
-        User = db.model('user');
+        User = require('../../../server/db/models/user');
     });
 
 	describe('Unauthenticated request', function () {

@@ -7,9 +7,7 @@ var db = new Sequelize(dbURI, {
     logging: false
 });
 
-require('../../../server/db/models/user')(db);
-
-var User = db.model('user');
+var User = require('../../../server/db/models/user');
 
 describe('User model', function () {
 
