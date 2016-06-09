@@ -12,11 +12,11 @@
   <tbody>
     <tr ng-repeat="item in trolley">
       <td> 
-        <img ng-src="{{item.photoUrl}}">
+        <a ui-sref="product({id: item.id})"><img ng-src="{{item.photoUrl}}"></a>
       </td>
-      <td>{{ item.title }}</td>
+      <td><a ui-sref="product({id: item.id})">{{ item.title }}</a></td>
       <td>{{ item.price }}</td>
-      <td><input type='number' ng-model='quantity[item.id]' ng-value="{{ item.quantity }}"></td> 
+      <td><input type='number' ng-model='amount[item.id]' ng-value="{{ item.amount }}" min="0" max="{{ item.quantity }}"></td> 
       <td>
         <button class="btn btn-default btn-xs" ng-click="removeFromCart(item)" title='delete trolley'>
             <span class="glyphicon glyphicon-remove"></span>
@@ -29,4 +29,3 @@
   </tbody>
 </table>
 
-<add-to-cart item="product"></add-to-cart> <!-- EXAMPLE DIRECTIVE FOR TESTING -->
