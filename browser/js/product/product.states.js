@@ -13,4 +13,16 @@ app.config(function ($stateProvider) {
         }
     });
 
+    $stateProvider.state('product.reviews', {
+        url: '/products/:id/reviews',
+        templateUrl: 'js/product/templates/product-allreviews.html',
+        controller: 'ProductCtrl'
+    });
+
+    $stateProvider.state('product.writeReview', {
+        url: '/products/:id/writeareview',
+        templateUrl: 'js/product/templates/product-writereview.html',
+        controller: 'ProductCtrl'
+    });
+
 });
