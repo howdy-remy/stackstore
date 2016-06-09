@@ -1,4 +1,4 @@
-'use strict';
+	'use strict';
 
 var db = require('./_db');
 var User = require('./models/user');
@@ -11,3 +11,4 @@ Review.belongsTo(User);
 Review.belongsTo(Product);
 
 module.exports = db;
+

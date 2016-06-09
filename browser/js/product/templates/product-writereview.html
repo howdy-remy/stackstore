@@ -1,0 +1,27 @@
+<div class="col-sm-12">
+  <div class="row">
+    <div>
+      <form class="form-inline form-group" ng-submit="addReview()">
+
+        <div class="input-group">
+
+          <span>Rating</span>
+          <select class="form-control" ng-model="newReview.star">
+            <option name="oneStar" value="1">1 Star</option>
+            <option name="twoStar" value="2">2 Star</option>
+            <option name="threeStar" value="3">3 Star</option>
+            <option name="fourStar" value="4">4 Star</option>
+            <option name="fiveStar" value="5">5 Star</option>
+          </select>
+        </div>
+
+        <textarea class="form-control" rows="5" ng-model="newReview.text"></textarea>
+        <br>
+
+        <input type="submit" class="btn btn-block btn-success" value="Submit"></input>
+        
+      </form>
+
+    </div>
+  </div>
+</div>

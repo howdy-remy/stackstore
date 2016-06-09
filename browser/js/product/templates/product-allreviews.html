@@ -1,0 +1,14 @@
+<div>
+	<!-- <div class="alert alert-danger"> -->
+	<div class="alert alert-danger" ng-if="reviews.length === 0">
+	    No reviews yet, be the first to review this product!
+	</div>
+
+	<div class="alert alert-danger">
+	<!-- <div class="alert alert-danger" ng-if="reviews.length === 0 && !loggedIn()"> -->
+	    No reviews yet!
+	</div>
+
+	<review-list ng-repeat="review in reviews" model="review"></review-list>
+
+</div>

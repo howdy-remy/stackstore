@@ -9,7 +9,8 @@ app.config(function ($urlRouterProvider, $locationProvider) {
     // Trigger page refresh when accessing an OAuth route
     $urlRouterProvider.when('/auth/:provider', function () {
         window.location.reload();
-    });
+    }); 
+    $urlRouterProvider.when('/products/:productId', '/products/:productId/reviews');
 });
 
 // This app.run is for controlling access to specific states.
