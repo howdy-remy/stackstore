@@ -10,7 +10,8 @@
 	  	<h2>{{product.title}}</h2>
 	  	<h3>{{product.price | currency }}</h3>
 			<p>{{product.description}}</p>
-			<add-to-cart item="product"></add-to-cart>
+			<add-to-cart ng-if="areEnough()" item="product"></add-to-cart>
+	  	<h3 ng-show="!areEnough()">Shame! Looks like we are out of this...</h3>
 	  </div>
 
 	</div>
@@ -29,7 +30,6 @@
 			</div>
 
 	  	</div>
-
 
 	</div>
 
