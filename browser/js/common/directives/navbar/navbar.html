@@ -9,7 +9,10 @@
             </li>
         </ul>
         <button ui-sref="trolley" class="btn login-button"><span class='glyphicon glyphicon-shopping-cart'></span></button>
+
+        <button ng-show="!user" ui-sref="signup" class="btn login-button">Sign Up!</button>
         <button ng-show="!user" ui-sref="login" class="btn login-button">Login</button>
+        
         <div ng-show="user" class="welcome">
             <span>Welcome, {{ user.email }}!</span>
             <a ng-click="logout()">Logout</a>

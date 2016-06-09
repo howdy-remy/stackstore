@@ -56,4 +56,39 @@ module.exports = function (app, db) {
 
     });
 
+    //sign up route
+    app.post('/signup', function (req, res, next) {
+
+        User.findOrCreate({where: {email: req.body.email}, defaults: {password: req.body.password}})
+        .spread(function(user){
+            return user;
+        })
+        .then(function(user){
+            passport.authenticate('local', authCb)(req, res, next);
+        });
+
+        var authCb = function (err, user) {
+
+            if (err) return next(err);
+
+            if (!user) {
+                var error = new Error('Invalid sign up credentials.');
+                error.status = 401;
+                return next(error);
+            }
+
+            // req.logIn will establish our session.
+            req.logIn(user, function (loginErr) {
+                if (loginErr) return next(loginErr);
+                // We respond with a response object that has user with _id and email.
+                res.status(200).send({
+                    user: user.sanitize()
+                });
+            });
+
+        };
+
+
+    });
+
 };
