@@ -28,7 +28,7 @@ app.factory('ProductFactory', function ($http, $q) {
 
   ProductFactory.fetchById = function (id) {
     return $http.get('/api/products/' + id)
-    .then(function (response) { return response.data; })
+    .then(getData)
     .then(function (product) {
       return product;
     });
@@ -54,6 +54,23 @@ app.factory('ProductFactory', function ($http, $q) {
       return allCategories;
     })
   };
+
+  ProductFactory.createReview = function(data){
+    console.log(data, "data")
+    return $http.post('/api/reviews', data)
+    .then(function (response) {
+      var review = response.data;
+      return review;
+    });    
+  }
+
+  ProductFactory.fetchReviews = function(productId){
+    return $http.get('/api/reviews/' + productId)
+    .then(getData)
+    .then(function (reviews) { 
+      return reviews;
+    });
+  }
 
   return ProductFactory;
 
