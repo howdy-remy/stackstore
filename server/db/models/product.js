@@ -20,7 +20,7 @@ module.exports = db.define('product', {
 		type: Sequelize.INTEGER,
 		allowNull: false
 	},
-	category: {
+	category: {//can this be a model/relation instead? - th
 		type: Sequelize.ARRAY(Sequelize.STRING), //may be multiple categories
 		allowNull: false
 	},

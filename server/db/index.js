@@ -1,4 +1,4 @@
-	'use strict';
+'use strict';
 
 var db = require('./_db');
 var User = require('./models/user');

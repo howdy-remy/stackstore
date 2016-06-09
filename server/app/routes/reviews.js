@@ -4,6 +4,8 @@ var Review = require('../../db/models/review.js');
 var Index = require('../../db/index.js');
 module.exports = router;
 
+//do we want to also get all reviews that a user has made? -th
+
 //getting all reviews
 router.get('/:productId', function(req, res, next){
 	Review.findAll({where: {productId: req.params.productId}})
@@ -24,7 +26,7 @@ router.get('/:productId/:id', function (req, res, next){
 
 //adding a new review
 router.post('/', function(req, res, next){
-	var user = req.user; 
+	var user = req.user;
 	// var product = req.body.productId;
 	Review.create(req.body)
 	.then(function(newReview){

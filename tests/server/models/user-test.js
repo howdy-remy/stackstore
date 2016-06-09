@@ -7,7 +7,7 @@ var db = new Sequelize(dbURI, {
     logging: false
 });
 
-require('../../../server/db/models/user')(db);
+require('../../../server/db/models/user')(db); // causing error
 
 var User = db.model('user');
 

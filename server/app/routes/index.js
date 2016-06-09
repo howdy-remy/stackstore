@@ -1,5 +1,6 @@
 'use strict';
 var router = require('express').Router();
+//user routes? -th
 
 router.use('/members', require('./members'));
 router.use('/products', require('./products'));
