@@ -8,24 +8,28 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('signupCtrl', function ($scope, AuthService, $state) {
+app.controller('signupCtrl', function ($scope, AuthService, $state, signUpFactory) {
 
     $scope.signup = {};
     $scope.error = null;
 
-    $scope.sendSignup = function (signupInfo) {
-        //post request to find or create user and then add them to the session
-
-
-
-        // $scope.error = null;
-
-        // AuthService.signup(signupInfo).then(function () {
-        //     $state.go('home');
-        // }).catch(function () {
-        //     $scope.error = 'Invalid signup credentials.';
-        // });
-
+    $scope.sendSignup = function(signupInfo){
+        return signUpFactory.sendSignup(signupInfo);
     };
 
+});
+
+app.factory('signUpFactory', function($http, $state, AuthService){
+    return {
+        sendSignup: function(signupInfo){
+            return $http.post('/signup', signupInfo)
+            .then(function(response){
+                return AuthService.getLoggedInUser(false);
+            })
+            .then(function(){
+                $state.go('products');
+            })
+            .catch(console.error);
+        }
+    };
 });
