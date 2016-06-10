@@ -2,9 +2,9 @@ module.exports = {
   "DATABASE_URI": "postgres://localhost:5432/fsg",
   "SESSION_SECRET": "Optimus Prime is my real dad",
   "TWITTER": {
-    "consumerKey": "INSERT_TWITTER_CONSUMER_KEY_HERE",
-    "consumerSecret": "INSERT_TWITTER_CONSUMER_SECRET_HERE",
-    "callbackUrl": "INSERT_TWITTER_CALLBACK_HERE"
+    "consumerKey": "C858skN35pFq0pPmC5Emmw2Ej",
+    "consumerSecret": "FNJuEZa4Kyw9JhqM5kYSpZldE4voyvg0afQZVOQIwUftQgCMEc",
+    "callbackUrl": "http://127.0.0.1:1337/auth/twitter/callback"
   },
   "FACEBOOK": {
     "clientID": "INSERT_FACEBOOK_CLIENTID_HERE",
