@@ -3,9 +3,7 @@ var router = require('express').Router();
 module.exports = router;
 
 //getting all items in the trolley from the session
-//check if persists after user login!!!!!!!
 router.get('/', function(req, res, next){
-	console.log('the trolley in the main get', req.session.trolley);
 	res.send(req.session.trolley);
 });
 
@@ -17,7 +15,7 @@ router.post('/', function(req, res, next){
 	if(!req.session.trolley){
 		req.session.trolley = [];
 	} else {
-		for(let i =0; i < req.session.trolley.length; i++){
+		for(let i = 0; i < req.session.trolley.length; i++){
 			if(req.session.trolley[i].id === req.body.id){
 				req.session.trolley[i].amount++;
 				found = true;
