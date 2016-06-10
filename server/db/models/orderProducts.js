@@ -8,7 +8,7 @@ module.exports = db.define('orderProducts', {
 		type: Sequelize.INTEGER, 
 		allowNull: false
 	}, 
-	productPrice: {
+	price: {
 		type: Sequelize.DECIMAL, 
 		allowNull: false
 	}
