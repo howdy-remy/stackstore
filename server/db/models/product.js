@@ -20,10 +20,10 @@ module.exports = db.define('product', {
 		type: Sequelize.INTEGER,
 		allowNull: false
 	},
-	category: {
-		type: Sequelize.ARRAY(Sequelize.STRING), //may be multiple categories
-		allowNull: false
-	},
+	// category: {
+	// 	type: Sequelize.ARRAY(Sequelize.STRING), //may be multiple categories
+	// 	allowNull: false
+	// },
 	photoUrl: {
 		type: Sequelize.STRING
 	}
