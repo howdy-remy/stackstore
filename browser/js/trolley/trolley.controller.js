@@ -15,4 +15,14 @@ app.controller('TrolleyCtrl', function($scope, TrolleyFactory, trolley){
 			});
 		});
 	};
+
+	console.log($scope.trolley)
+
+	$scope.totalPrice = function(){
+		var tot = 0;
+		for (var i = 0; i < $scope.trolley.length; i++) {
+			tot += (parseFloat($scope.trolley[i].amount) * parseFloat($scope.trolley[i].price));
+		}
+		return tot;
+	}
 });
