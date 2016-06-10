@@ -65,7 +65,7 @@ app.factory('ProductFactory', function ($http, $q) {
   }
 
   ProductFactory.fetchReviews = function(productId){
-    return $http.get('/api/reviews/' + productId)
+    return $http.get('/api/reviews?productId=' + productId)
     .then(getData)
     .then(function (reviews) { 
       return reviews;
