@@ -20,7 +20,7 @@
         <input type="text" ng-model="checkout.email" class="form-control" id="email" placeholder="Enter email" required>
     </div>
     <div>
-        <h5>Shipping Information</h5>
+        <label>Shipping Information</label>
             <div class="form-group">
                 <label for="street">Street</label>
                 <input type="text" ng-model="checkout.street" class="form-control" id="street" placeholder="Enter street" required>
@@ -40,5 +40,7 @@
                 <input type="text" ng-model="checkout.zip" class="form-control" id="zip" placeholder="Enter zip" required>
             </div>
     </div>
-    <button type="submit" class="btn btn-default">Complete Purchase</button>
+        <button class="btn btn-default btn-m" type="submit">
+            <span class="glyphicon glyphicon-ok-circle"></span> Complete Purchase
+        </button>
 </form>
