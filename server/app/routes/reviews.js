@@ -1,20 +1,24 @@
 'use strict';
 var router = require('express').Router();
 var Review = require('../../db/models/review.js');
+var User = require('../../db/models/user.js');
 module.exports = router;
 
-//getting all reviews
-router.get('/:productId', function(req, res, next){
-	Review.findAll({where: {productId: req.params.productId}})
+//get all reviews
+router.get('/', function(req, res, next){
+
+	var whereObj = Object.keys(req.query).length ? req.query: {};	
+
+	Review.findAll({where: whereObj})
 	.then(function(reviews){
 		res.send(reviews);
 	})
 	.catch(next);
 });
 
-//getting a specific review
-router.get('/:productId/:id', function (req, res, next){
-	Review.findById(req.params.id)
+//get a specific review
+router.get('/:reviewId', function(req, res, next){
+	Review.findById(req.params.reviewId)
 	.then(function(review){
 		res.send(review);
 	})

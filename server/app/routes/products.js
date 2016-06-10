@@ -9,7 +9,7 @@ router.get('/', function(req,res,next){
 //if there is a query string, refine findAll by that obj, else don't refine by anything
 var whereObj = Object.keys(req.query).length ? req.query : {};
 
-Product.findAll(whereObj)
+Product.findAll({where: whereObj})
 	.then(function (products) {
 		res.send(products); 
 	})
