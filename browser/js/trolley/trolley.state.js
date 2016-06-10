@@ -12,16 +12,3 @@ app.config(function ($stateProvider) {
     });
 });
 
-//added -------------------------------------------
-app.config(function ($stateProvider) {
-    $stateProvider.state('checkout', {
-        url: '/checkout',
-        templateUrl: 'js/trolley/checkout.html',
-        controller: 'CheckoutCtrl'
-        // resolve: {
-        //     trolley: function(TrolleyFactory){
-        //         return TrolleyFactory.fetchAllItems();
-        //     }
-        // }
-    });
-});
