@@ -9,7 +9,7 @@ router.get('/', function(req,res,next){
 //for query string requesting orders from a specific user
 var whereObj = Object.keys(req.query).length ? req.query : {};
 
-	Order.findAll(whereObj)
+	Order.findAll({where: whereObj})
 	.then(function (orders) {
 		res.send(orders); 
 	})
@@ -25,7 +25,7 @@ router.post('/', function(req, res, next){
 		res.status(201).send(newOrder);
 	})
 	.catch(next);
-	
+
 });
 
 //get a single order
