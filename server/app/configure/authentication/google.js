@@ -27,7 +27,8 @@ module.exports = function (app, db) {
                     return user;
                 } else {
                     return User.create({
-                        google_id: profile.id
+                        google_id: profile.id,
+                        email: profile.emails ? profile.emails[0].value : [profile.username , 'fake-email.com'].join('@'),
                     });
                 }
             })

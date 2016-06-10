@@ -4,6 +4,11 @@ app.controller('ProductCtrl', function ($scope, $state, ProductFactory, theProdu
 
 	$scope.product = theProduct;
 
+	$scope.areEnough = function(){
+		if ($scope.product.quantity === 0) return false; 
+		else return true; 
+	}
+
 	$scope.addReview = function(){
 		ProductFactory.createReview({text: $scope.newReview.text, stars: $scope.newReview.star, productId: theProduct.id})
 		.then(function(){
