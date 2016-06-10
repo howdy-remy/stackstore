@@ -11,10 +11,10 @@ module.exports = db.define('order', {
 1. if a logged in user places an order, we should autofill their email 
 2. logged in users may have past addresses stored somewhere? 
 */
-	items: {
-		type: Sequelize.ARRAY(Sequelize.JSON), 
-		allowNull: false		
-	},
+	// items: {
+	// 	type: Sequelize.ARRAY(Sequelize.JSON), 
+	// 	allowNull: false		
+	// },
 	// //HOW CAN WE VALIDATE GIVEN ADDRESS IS VALID?
 	street: {
 		type: Sequelize.STRING,
