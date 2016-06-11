@@ -15,7 +15,8 @@ app.config(function($stateProvider){
 
 	$stateProvider.state('userAccount.info', {
 		url: '/info',
-		templateUrl: 'js/user-account/templates/user-account-info.html'
+		templateUrl: 'js/user-account/templates/user-account-info.html',
+		controller: 'userCtrl'		
 	}); 
 
 	$stateProvider.state('userAccount.orders', {
