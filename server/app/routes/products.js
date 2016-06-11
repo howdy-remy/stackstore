@@ -15,6 +15,7 @@ router.get('/', function(req,res,next){
 			res.send(products);
 		})
 		.catch(next);
+
 });
 
 //add a new product

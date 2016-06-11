@@ -12,11 +12,23 @@ router.get('/', function (req, res, next) {
 	.catch(next);
 });
 
-// get user by userid
-router.get('/:userId', function (req, res, next) {
-	User.findById(req.params.userId)
-	.then(function(user){
-		res.send(user);
-	})
-	.catch(next);
+router.param('userId', function (req, res, next, id) {
+  User.findById(id)
+  .then(user => {
+    if (!user) throw new Error('not found!');
+    req.user = user;
+    next();
+    return null; 
+  })
+  .catch(next);
+});
+
+router.get('/:userId', function (req, res) {
+  res.json(req.user);
+});
+
+router.get('/:userId/orders', function (req, res, next) {
+  req.user.getOrders() // instance method in the model
+  .then(orders => res.json(orders))
+  .catch(next);
 });

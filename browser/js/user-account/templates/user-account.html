@@ -1,0 +1,8 @@
+<div>
+  <h3>Welcome {{ user.email }}!</h3>
+  <ul class="nav nav-tabs">
+    <li ui-sref-active="active"><a ui-sref="userAccount.info">MY INFO</a></li>
+    <li ui-sref-active="active"><a ui-sref="userAccount.orders">MY ORDERS</a></li>
+  </ul>
+  <ui-view></ui-view>
+</div>

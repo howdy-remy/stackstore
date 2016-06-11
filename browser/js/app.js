@@ -11,6 +11,8 @@ app.config(function ($urlRouterProvider, $locationProvider) {
         window.location.reload();
     }); 
     $urlRouterProvider.when('/products/:productId', '/products/:productId/reviews');
+
+    $urlRouterProvider.when('/account/:userId', '/account/:userId/info');
 });
 
 // This app.run is for controlling access to specific states.

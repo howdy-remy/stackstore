@@ -1,0 +1,26 @@
+<h3>Order History</h3>
+
+<p ng-hide="orders.length">You have no orders yet! We're sure you can find <a href="http://localhost:1337/products">something</a> you like... </p>
+
+<table class="table" id="order-table">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Order Number</th>
+			<th>Order Date</th>
+			<th>Order Status</th>
+			<th></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr ng-repeat="order in orders">
+			<th></th>
+			<th>{{order.id}}</th>
+			<th>{{order.timePlaced}}</th>
+			<th>{{order.status}}</th>
+			<th></th>			
+		</tr>
+	</tbody>
+	
+</table>

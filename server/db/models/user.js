@@ -36,6 +36,14 @@ module.exports =
             },
             correctPassword: function (candidatePassword) {
                 return this.Model.encryptPassword(candidatePassword, this.salt) === this.password;
+            }, 
+            getOrders: function () {
+                return db.model('order').findAll({
+                    include: [{
+                        model: db.model('user'), 
+                        where: { id: this.id }
+                    }]
+                })
             }
         },
         classMethods: {
