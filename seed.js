@@ -101,11 +101,11 @@ db.sync({ force: true })
         return Promise.map(data.product, function (item) {
             return Promise.all([
                     Product.create(item.product),
-                    Promise.map(item.categories, function (cat) {
-                        //this findorcreate seems to be 'randomly' finding, 
-                        //so we end up with some duplicate categories in the database
+                    Promise.mapSeries(item.categories, function (cat) {
+                        //this findorcreate adds duplicate items to the database
+                        //theory: it is finding and creating async, and some categories are not created yet when the next find is executed
                         //fix this later....?
-                        return Category.findOrCreate({ where: cat })
+                        return Category.findOrCreate({where: cat})
                             .spread(function (instance) {
                                 return instance;
                             });
