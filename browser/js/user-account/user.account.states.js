@@ -3,12 +3,12 @@
 app.config(function($stateProvider){
 
 	$stateProvider.state('userAccount', {
-		url: '/account',
+		url: '/account/:userId',
 		templateUrl: 'js/user-account/templates/user-account.html',
 		controller: 'userCtrl',
 		resolve: {
-			allOrders: function(UserFactory){
-				return UserFactory.fetchOrders();
+			theUser: function(UserFactory, $stateParams){
+				return UserFactory.fetchById($stateParams.userId);
 			}
 		}
 	});
@@ -21,7 +21,7 @@ app.config(function($stateProvider){
 	$stateProvider.state('userAccount.orders', {
 		url: '/orders',
 		templateUrl: 'js/user-account/templates/user-account-orders.html',
-		controller: 'userCtrl'
+		controller: 'userCtrl'		
 	});
 	
 })

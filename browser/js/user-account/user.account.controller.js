@@ -1,8 +1,9 @@
 'use strict'; 
 
-app.controller('userCtrl', function($scope, allOrders){
+app.controller('userCtrl', function($scope, theUser){
 
-	console.log('ALL ORDERS', allOrders)
-	$scope.orders = allOrders; 
+	$scope.user = theUser; 
+
+	$scope.orders = theUser.orders; 
 
 })

@@ -1,6 +1,6 @@
 'use strict'; 
 
-app.factory('UserFactory', function($http, AuthService){
+app.factory('UserFactory', function($http, AuthService, $q){
 
 	var UserFactory = {};
 
@@ -12,17 +12,18 @@ app.factory('UserFactory', function($http, AuthService){
         AuthService.getLoggedInUser()
         .then(function (user) {
             currentUser = user;
-            console.log('USER IN CURRENT USER', currentUser)
         });
     };
 
-	UserFactory.fetchOrders = function(){
-		setUser();
-		return $http.get('/api/orders?userId=' + currentUser.id)
-		.then(getData)
-		.then(function(orders){
-			console.log('successfully got orders')
-			return orders;
+	UserFactory.fetchById = function(id){
+		var url = '/api/users/' + id;
+		return $q.all([$http.get(url), $http.get(url + '/orders')])
+		.then( function(responses) { return responses.map(getData); }) 
+		.then( function (results) {
+			var user = results[0];
+			var orders = results[1]; 
+			user.orders = orders; 
+			return user;
 		})
 	};
 
