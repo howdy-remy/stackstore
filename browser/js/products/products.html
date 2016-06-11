@@ -1,21 +1,27 @@
 <div class="container">
-  <div class="row">
-    <form>
-      <ul>
-        <p>Refine by Category:</p>
-        <li ng-repeat="category in categories">
-            <input type="checkbox" ng-model="category.checked"/> {{category.name}} <!-- {{category.checked}} -->
-        </li>
-      </ul>
-      <ul>Search all products:
-        <input type="text" class="form-control" placeholder="by name" ng-model="nameSearch">
-      </ul>
-    </form>
-  </div>
 
   <div class="row">
-    <products-item ng-show="isFiltered(product) " ng-repeat="product in products | filter: {title: nameSearch}" model="product">
-      <span ng-bind="searchProducts"></span>
-    </products-item>
+    <div class="col-xs-12 col-sm-3">
+      <form>
+        <ul class="category-selection">
+          <p>Refine by Category:</p>
+          <li ng-repeat="category in categories" >
+            <div ng-click="myClick(category)" class="ng-class: category.style">
+              <input style="display:none" type="checkbox" ng-model="category.checked"/> {{category.name}} <!-- {{category.checked}} -->
+            </div>
+          </li>
+        </ul>
+        <div class="search-bar inner-addon right-addon">
+          <i class="glyphicon glyphicon-search"></i>
+          <input type="text" class="form-control" placeholder="Search by name" ng-model="nameSearch">
+        </div>
+      </form>
+    </div>
+    <div class="col-xs-12 col-sm-9">
+      <products-item ng-show="isFiltered(product) " ng-repeat="product in products | filter: {title: nameSearch}" model="product">
+        <span ng-bind="searchProducts"></span>
+      </products-item>
+    </div>
   </div>
+
 </div>
