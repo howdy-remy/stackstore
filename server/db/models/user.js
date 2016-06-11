@@ -24,6 +24,10 @@ module.exports =
         },
         google_id: {
             type: Sequelize.STRING
+        },
+        isAdmin: {
+            type: Sequelize.BOOLEAN,
+            defaultValue: false
         }
     }, {
         instanceMethods: {
