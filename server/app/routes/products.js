@@ -1,6 +1,7 @@
 'use strict';
 var router = require('express').Router();
 var Product = require('../../db/models/product.js');
+var Category = require('../../db/models/category.js');
 module.exports = router;
 
 //get all products
@@ -26,6 +27,14 @@ router.post('/', function(req, res, next){
 		res.send(newProduct);
 	})
 	.catch(next);
+});
+
+router.get('/categories', function(req, res, next){
+	Category.findAll()
+	.then(function(foundCategories){
+		console.log(foundCategories);
+		return foundCategories;
+	});
 });
 
 //get a single product
@@ -81,4 +90,6 @@ router.delete('/:id', function(req, res, next){
 		})
 		.catch(next);
 });
+
+
 
