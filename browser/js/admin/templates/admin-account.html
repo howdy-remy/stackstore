@@ -1,0 +1,9 @@
+<div>
+  <h3>Hello {{ user.email }}</h3>
+  <ul class="nav nav-tabs">
+    <li ui-sref-active="active"><a ui-sref="adminAccount.orders">ORDERS</a></li>
+    <li ui-sref-active="active"><a ui-sref="adminAccount.products">PRODUCTS</a></li>
+    <li ui-sref-active="active"><a ui-sref="adminAccount.users">USERS</a></li>
+  </ul>
+  <ui-view></ui-view>
+</div>
