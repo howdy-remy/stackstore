@@ -8,6 +8,7 @@ router.get('/', function(req,res,next){
 
 //for query string requesting orders from a specific user
 var whereObj = Object.keys(req.query).length ? req.query : {};
+console.log('req.query here', req.query)
 
 	Order.findAll({where: whereObj})
 	.then(function (orders) {
