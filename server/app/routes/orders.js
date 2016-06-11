@@ -2,39 +2,46 @@
 var router = require('express').Router();
 module.exports = router;
 var Orders = require('../../db/models/order.js');
+var Products = require('../../db/models/product.js');
 var OrderProducts = require('../../db/models/orderProducts.js')
+var Promise = require('bluebird');
 
 
-//adding an item to the trolley
 router.post('/checkout', function(req, res, next){
-	console.log('in the checkout route ', req.session.trolley);
-	console.log('here is my req body', req.body);
-	///**** fix the format of what is in the .create!!!!!****
-	Orders.create({
-		street: req.body.street,
-		city: req.body.city,
-		state: req.body.state,
-		zip: req.body.zip,
-		email: req.body.email,
-		firstName: req.body.firstName,
-		lastName: req.body.lastName
-		})  
+	Orders.create(req.body)  //1) create order in Orders model with shipping info
 	.then(function(createdOrder){
-		console.log('this should be the order id of the order just created ', createdOrder.id);
-		OrderProducts.bulkCreate({
-			productId: createdOrder.id,
-			amount: 10,
-			price: 10
+		// var newOrder = createdOrder;
+		return Promise.map(req.session.trolley, function(item) { //2) update Products model to reduce the stock quantities by the number of items ordered
+			return Products.findOne({where: {id: item.id}})
+			.then(function(originalProduct){
+				return Products.update({
+						quantity: originalProduct.quantity - item.amount //can we access the quantity without doing a findOne first
+						}, {where: {id: item.id}})				
+					})
+					.then(function(){
+						return Products.findOne({where: {id: item.id}});
+					})
+					.then(function(updatedProduct){  //3) update the price and amount fields in the OrderProducts model
+						return createdOrder.addProduct(updatedProduct, { price: item.price, amount: item.amount });
+					})
+					.catch(function(err){
+						console.log('there was an error ', err);
+					})
+		}) //end of promise.map
+		.then(function(){
+			console.log('done');
+			req.session.trolley = [];
+			console.log(req.session.trolley);
 		})
-		.then(function(createdOrderProducts){
-///need to update the products model to update the quantity
+		.catch(function(err){
+			console.log('there was an error ', err);
 		});
-		items: req.session.trolley, ///need to update the items
-		//what do we want to do after we create the order??  Send email to user??
-		res.status(201);
-		
 	});
-	//clear the trolley on the session
+//4) send confirmation email to user 
+//5) send to confirmation page 'thank you for your order, you will recieve email confirmation shortly'
+//6) clear the trolley on the session
+
+
 });
 
 //get all orders
@@ -55,8 +62,8 @@ var whereObj = Object.keys(req.query).length ? req.query : {};
 router.post('/', function(req, res, next){
 
 	Order.create(req.body)
-	.then(function(newOrder){
-		res.status(201).send(newOrder);
+	.then(function(createdOrder){
+		res.status(201).send(createdOrder);
 	})
 	.catch(next);
 
