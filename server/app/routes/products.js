@@ -6,16 +6,15 @@ module.exports = router;
 
 //get all products
 router.get('/', function(req,res,next){
+	//if there is a query string, refine findAll by that obj, else don't refine by anything
+	//also include category model with the result either way
+	var whereObj = Object.keys(req.query).length ? { where: req.query, include: [{ model: Category }] } : { include: [{ model: Category }] };
 
-//if there is a query string, refine findAll by that obj, else don't refine by anything
-var whereObj = Object.keys(req.query).length ? req.query : {};
-
-Product.findAll(whereObj)
-	.then(function (products) {
-		res.send(products); 
-	})
-	.catch(next);
-
+	Product.findAll(whereObj)
+		.then(function (products) {
+			res.send(products);
+		})
+		.catch(next);
 });
 
 //add a new product
@@ -32,8 +31,7 @@ router.post('/', function(req, res, next){
 router.get('/categories', function(req, res, next){
 	Category.findAll()
 	.then(function(foundCategories){
-		console.log(foundCategories);
-		return foundCategories;
+		res.send(foundCategories);
 	});
 });
 
