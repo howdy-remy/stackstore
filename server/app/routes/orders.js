@@ -1,7 +1,7 @@
 'use strict';
 var router = require('express').Router();
 module.exports = router;
-var Orders = require('../../db/models/order.js');
+var Order = require('../../db/models/order.js');
 var Products = require('../../db/models/product.js');
 var OrderProducts = require('../../db/models/orderProducts.js')
 var Promise = require('bluebird');
@@ -9,7 +9,7 @@ var Promise = require('bluebird');
 
 router.post('/checkout', function(req, res, next){
 	console.log('in the checkout route')
-	Orders.create(req.body)  //1) create order in Orders model with shipping info
+	Order.create(req.body)  //1) create order in Orders model with shipping info
 	.then(function(createdOrder){
 		return Promise.map(req.session.trolley, function(item) { //2) update Products model to reduce the stock quantities by the number of items ordered
 			return Products.findOne({where: {id: item.id}})
