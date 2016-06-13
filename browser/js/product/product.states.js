@@ -16,11 +16,11 @@ app.config(function($stateProvider) {
     $stateProvider.state('product.reviews', {
         url: '/reviews',
         templateUrl: 'js/product/templates/product-allreviews.html',
-        controller: 'ReviewsCtrl', 
+        controller: 'ReviewsCtrl',
         resolve: {
             allReviews: function(ProductFactory, $stateParams) {
                 return ProductFactory.fetchReviews($stateParams.id);
-            }          
+            }
         }
     });
 

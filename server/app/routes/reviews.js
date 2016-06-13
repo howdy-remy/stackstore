@@ -7,7 +7,7 @@ module.exports = router;
 //get all reviews
 router.get('/', function(req, res, next){
 
-	var whereObj = Object.keys(req.query).length ? req.query: {};	
+	var whereObj = Object.keys(req.query).length ? req.query: {};
 
 	Review.findAll({where: whereObj})
 	.then(function(reviews){
@@ -17,7 +17,7 @@ router.get('/', function(req, res, next){
 });
 
 //get a specific review
-router.get('/:reviewId', function(req, res, next){
+router.get('/:reviewId', function(req, res, next){//this is the path you are hitting to fetch product reviews. is this about a specific product? -th
 	Review.findById(req.params.reviewId)
 	.then(function(review){
 		res.send(review);
@@ -27,7 +27,7 @@ router.get('/:reviewId', function(req, res, next){
 
 //adding a new review
 router.post('/', function(req, res, next){
-	var user = req.user; 
+	var user = req.user;
 	// var product = req.body.productId;
 	Review.create(req.body)
 	.then(function(newReview){

@@ -4,9 +4,9 @@ app.controller('ProductCtrl', function ($scope, $state, ProductFactory, theProdu
 
 	$scope.product = theProduct;
 
-	$scope.areEnough = function(){
-		if ($scope.product.quantity === 0) return false; 
-		else return true; 
+	$scope.areEnough = function(){//display quantity as well?- th
+		if ($scope.product.quantity === 0) return false;
+		else return true;
 	}
 
 	$scope.addReview = function(){

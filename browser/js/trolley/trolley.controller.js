@@ -1,6 +1,6 @@
 
 app.controller('TrolleyCtrl', function($scope, TrolleyFactory, trolley){
-	$scope.trolley = trolley;
+	$scope.trolley = trolley;//remains trolley on logout-th
 	$scope.amount = {};
 
 	$scope.updateCart = function(item){
