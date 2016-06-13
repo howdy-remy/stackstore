@@ -28,7 +28,8 @@ var data = {
 		{email: 'obama@gmail.com', password: 'potus'},
 		{email: 'mallory@gmail.com', password:'1234', isAdmin: true},
 		{email: 'belinda@gmail.com', password:'1234', isAdmin: true},
-		{email: 'kimber@gmail.com', password:'1234', isAdmin: true}
+		{email: 'kimber@gmail.com', password:'1234', isAdmin: true},
+		{email: 'rina@gmail.com', password:'1234', isAdmin: true}
 	],
 
 	categories: [
