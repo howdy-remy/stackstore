@@ -22,8 +22,8 @@ console.log('req.query here', req.query)
 router.post('/', function(req, res, next){
 
 	Order.create(req.body)
-	.then(function(newOrder){
-		res.status(201).send(newOrder);
+	.then(function(createdOrder){
+		res.status(201).send(createdOrder);
 	})
 	.catch(next);
 
