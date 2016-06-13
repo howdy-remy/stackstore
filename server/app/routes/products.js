@@ -1,20 +1,20 @@
 'use strict';
 var router = require('express').Router();
 var Product = require('../../db/models/product.js');
+var Category = require('../../db/models/category.js');
 module.exports = router;
 
 //get all products
 router.get('/', function(req,res,next){
+	//if there is a query string, refine findAll by that obj, else don't refine by anything
+	//also include category model with the result either way
+	var whereObj = Object.keys(req.query).length ? { where: req.query, include: [{ model: Category }] } : { include: [{ model: Category }] };
 
-//if there is a query string, refine findAll by that obj, else don't refine by anything
-var whereObj = Object.keys(req.query).length ? req.query : {};
-
-console.log('SESSION HERE', req.session);
-Product.findAll({where: whereObj})
-	.then(function (products) {
-		res.send(products); 
-	})
-	.catch(next);
+	Product.findAll(whereObj)
+		.then(function (products) {
+			res.send(products);
+		})
+		.catch(next);
 
 });
 
@@ -27,6 +27,13 @@ router.post('/', function(req, res, next){
 		res.send(newProduct);
 	})
 	.catch(next);
+});
+
+router.get('/categories', function(req, res, next){
+	Category.findAll()
+	.then(function(foundCategories){
+		res.send(foundCategories);
+	});
 });
 
 //get a single product
@@ -82,4 +89,6 @@ router.delete('/:id', function(req, res, next){
 		})
 		.catch(next);
 });
+
+
 

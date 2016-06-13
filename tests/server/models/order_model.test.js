@@ -57,14 +57,14 @@ it('belongs to a user', function() {
 
 //how do we make the order belong to a guest session(authenticated vs unauthenticated?)
 
-	it('contain line items, including price, current product ID and quantity', function(){
-    expect(order.items[0].productId).to.equal(1);
-    expect(order.items[1].productId).to.equal(2);
-    expect(order.items[0].price).to.equal(10.00);
-    expect(order.items[1].price).to.equal(20.00);
-    expect(order.items[0].quantity).to.equal(2);
-    expect(order.items[1].quantity).to.equal(1);
-	});
+	// it('contain line items, including price, current product ID and quantity', function(){
+ //    expect(order.items[0].productId).to.equal(1);
+ //    expect(order.items[1].productId).to.equal(2);
+ //    expect(order.items[0].price).to.equal(10.00);
+ //    expect(order.items[1].price).to.equal(20.00);
+ //    expect(order.items[0].quantity).to.equal(2);
+ //    expect(order.items[1].quantity).to.equal(1);
+	// });
 
 
   it('throws error when invalid email is provided', function(){
