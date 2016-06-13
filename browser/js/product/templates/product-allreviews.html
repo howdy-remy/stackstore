@@ -1,11 +1,9 @@
 <div>
-	<!-- <div class="alert alert-danger"> -->
-	<div class="alert alert-danger" ng-if="reviews.length === 0">
+	<div class="alert alert-danger" ng-if="reviews.length === 0 && user">
 	    No reviews yet, be the first to review this product!
 	</div>
 
-	<div class="alert alert-danger">
-	<!-- <div class="alert alert-danger" ng-if="reviews.length === 0 && !loggedIn()"> -->
+	<div class="alert alert-danger" ng-if="reviews.length === 0 && !user">
 	    No reviews yet!
 	</div>
 

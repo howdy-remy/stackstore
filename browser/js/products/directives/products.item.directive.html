@@ -1,6 +1,6 @@
 <div ui-sref="product({id: product.id})">
   <img ng-src="{{product.photoUrl}}" class="single-product" />
-  <p>{{product.title}}</p>
-  <p>{{product.price | currency }}</p>
+  <p class="single-product">{{product.title}}</p>
+  <p class="single-product">{{product.price | currency }}</p>
   <add-to-cart item="product"></add-to-cart>
 </div>

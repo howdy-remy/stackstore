@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #fdfdfd;
+  background: white;
 }
 
 @mixin clearfix {
@@ -17,6 +17,15 @@ body {
 #main {
   padding-top: 60px;
   margin: 0 auto;
+}
+
+@font-face {
+    font-family: Pistilli;
+    src: url('pistilli-roman-webfont.woff2') format('woff2'),
+         url('pistilli-roman-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 @import 'directives/main';
