@@ -15,4 +15,9 @@ app.controller('TrolleyCtrl', function($scope, TrolleyFactory, trolley){
 			});
 		});
 	};
+	$scope.checkout = function(){
+		return TrolleyFactory.checkout();
+	};
 });
+
+

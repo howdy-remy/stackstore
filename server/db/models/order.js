@@ -60,4 +60,13 @@ module.exports = db.define('order', {
 		type: Sequelize.STRING, 
 		allowNull: false
 	}
-});
+}
+// {
+// 	hooks: {
+// 		afterCreate: function(order, ){
+// //2) update Products model to reduce the stock quantities by the number of items ordered
+// //3) update the price and amount fields in the OrderProducts model
+// 		}
+// 	}
+// }
+);
