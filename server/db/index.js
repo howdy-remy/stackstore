@@ -1,7 +1,7 @@
 	'use strict';
 
 var db = require('./_db');
-var Sequelize = require('sequelize');
+// var Sequelize = require('sequelize');
 
 var User = require('./models/user');
 var Order = require('./models/order');

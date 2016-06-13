@@ -11,7 +11,7 @@ app.controller('TrolleyCtrl', function($scope, TrolleyFactory, trolley){
 		return TrolleyFactory.removeFromCart(item)
 		.then(function(){
 			$scope.trolley = $scope.trolley.filter(function(e){
-				return e.id != item.id;
+				return e.id !== item.id;
 			});
 		});
 	};

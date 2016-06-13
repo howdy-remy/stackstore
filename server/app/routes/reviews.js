@@ -1,7 +1,7 @@
 'use strict';
 var router = require('express').Router();
 var Review = require('../../db/models/review.js');
-var User = require('../../db/models/user.js');
+// var User = require('../../db/models/user.js');
 module.exports = router;
 
 //get all reviews
