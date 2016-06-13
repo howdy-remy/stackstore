@@ -27,4 +27,12 @@ module.exports = db.define('product', {
 	photoUrl: {
 		type: Sequelize.STRING
 	}
-});
+}
+// ,{
+// 	setterMethods: {
+// 		updateQuantity: function(purchasedAmt){
+// 			this.setDataValue('quantity', this.quantity - purchasedAmt);
+// 		}
+// 	}
+// }
+);
