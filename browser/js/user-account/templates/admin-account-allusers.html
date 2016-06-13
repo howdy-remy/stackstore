@@ -1,0 +1,24 @@
+<h3>All Users</h3>
+
+<table class="table" id="order-table">
+	<thead>
+		<tr>
+			<th></th>
+			<th>User ID</th>
+			<th>User Email</th>
+			<th>Admin Status</th>
+			<th></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr ng-repeat="user in users">
+			<th></th>
+			<th>{{user.id}}</th>
+			<th>{{user.email}}</th>
+			<th>{{user.isAdmin}}</th>
+			<th></th>			
+		</tr>
+	</tbody>
+	
+</table>

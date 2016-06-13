@@ -9,7 +9,16 @@ app.config(function($stateProvider){
 		resolve: {
 			theUser: function(UserFactory, $stateParams){
 				return UserFactory.fetchById($stateParams.userId);
-			}
+			}, 			
+			allOrders: function(AdminFactory){
+				return AdminFactory.fetchOrders();
+			},
+			allProducts: function(AdminFactory){
+				return AdminFactory.fetchProducts();
+			},
+			allUsers: function(AdminFactory){
+				return AdminFactory.fetchUsers();
+			}			
 		}
 	});
 
@@ -24,5 +33,23 @@ app.config(function($stateProvider){
 		templateUrl: 'js/user-account/templates/user-account-orders.html',
 		controller: 'userCtrl'		
 	});
+
+	$stateProvider.state('userAccount.allorders', {
+		url: '/allorders',
+		templateUrl: 'js/user-account/templates/admin-account-allorders.html',
+		controller: 'adminCtrl'		
+	});
+
+	$stateProvider.state('userAccount.allproducts', {
+		url: '/allproducts',
+		templateUrl: 'js/user-account/templates/admin-account-allproducts.html',
+		controller: 'adminCtrl'		
+	});
+	
+	$stateProvider.state('userAccount.allusers', {
+		url: '/allusers',
+		templateUrl: 'js/user-account/templates/admin-account-allusers.html',
+		controller: 'adminCtrl'
+	}); 
 	
 })

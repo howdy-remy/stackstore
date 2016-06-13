@@ -3,9 +3,9 @@
   <ul class="nav nav-tabs">
     <li ui-sref-active="active"><a ui-sref="userAccount.info">MY INFO</a></li>
     <li ui-sref-active="active"><a ui-sref="userAccount.orders">MY ORDERS</a></li>
-    <li ng-if="isAdmin(user)" ui-sref-active="active"><a ui-sref="adminAccount.orders">ORDERS</a></li>
-    <li ng-if="isAdmin(user)" ui-sref-active="active"><a ui-sref="adminAccount.products">PRODUCTS</a></li>
-    <li ng-if="isAdmin(user)" ui-sref-active="active"><a ui-sref="adminAccount.users">USERS</a></li>    
+    <li ng-if="isAdmin(user)" ui-sref-active="active"><a ui-sref="userAccount.allorders">ORDERS</a></li>
+    <li ng-if="isAdmin(user)" ui-sref-active="active"><a ui-sref="userAccount.allproducts">PRODUCTS</a></li>
+    <li ng-if="isAdmin(user)" ui-sref-active="active"><a ui-sref="userAccount.allusers">USERS</a></li>    
   </ul>
 
   <ui-view></ui-view>

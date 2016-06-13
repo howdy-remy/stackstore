@@ -1,0 +1,26 @@
+<h3>All Orders</h3>
+
+<table class="table" id="order-table">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Order Number</th>
+			<th>Recipient</th>
+			<th>Order Date</th>
+			<th>Order Status</th>
+			<th></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr ng-repeat="order in orders">
+			<th></th>
+			<th >{{order.id}}</th>
+			<th>{{order.firstName}} {{order.lastName}}</th>
+			<th>{{order.timePlaced}}</th>
+			<th>{{order.status}}</th>
+			<th></th>			
+		</tr>
+	</tbody>
+	
+</table>
