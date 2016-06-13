@@ -32,3 +32,22 @@ router.get('/:userId/orders', function (req, res, next) {
   .then(orders => res.json(orders))
   .catch(next);
 });
+
+//delete user
+router.delete('/:id', function(req, res, next){
+  //only admins should be able to do this!
+
+  User.findById(req.params.id)
+    .then(function (foundUser) {
+      if (!foundUser) {
+        var error = new Error();
+        error.status = 404;
+        throw error;
+      }
+      return foundUser.destroy();
+    })
+    .then(function () {
+      res.sendStatus(204);
+    })
+    .catch(next);
+});

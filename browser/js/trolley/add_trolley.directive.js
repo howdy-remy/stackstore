@@ -1,7 +1,7 @@
 app.directive('addToCart', function($http, TrolleyFactory){
 	return {
 		restrict: 'E',
-		template: '<button>Add to Cart</button>',
+		template: '<button class="trolley-button">Add to Trolley</button>',
 		scope: {
 			item: '='
 		},

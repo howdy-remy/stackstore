@@ -36,5 +36,12 @@ app.controller('ProductsCtrl', function ($scope, allProducts, allCategories) {
 		}
 	};
 
+	$scope.myClick = function(category) {
+		category.checked = !category.checked;
+		if (category.checked)
+			category.style="clicked";
+		else
+			category.style = "";
+	}
 
 });
