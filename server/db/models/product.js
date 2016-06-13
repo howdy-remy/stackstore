@@ -20,11 +20,19 @@ module.exports = db.define('product', {
 		type: Sequelize.INTEGER,
 		allowNull: false
 	},
-	category: {
-		type: Sequelize.ARRAY(Sequelize.STRING), //may be multiple categories
-		allowNull: false
-	},
+	// category: {
+	// 	type: Sequelize.ARRAY(Sequelize.STRING), //may be multiple categories
+	// 	allowNull: false
+	// },
 	photoUrl: {
 		type: Sequelize.STRING
 	}
-});
+}
+// ,{
+// 	setterMethods: {
+// 		updateQuantity: function(purchasedAmt){
+// 			this.setDataValue('quantity', this.quantity - purchasedAmt);
+// 		}
+// 	}
+// }
+);

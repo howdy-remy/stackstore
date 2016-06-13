@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="products">
 
   <div class="row">
     <div class="col-xs-12 col-sm-3">
@@ -18,10 +18,11 @@
       </form>
     </div>
     <div class="col-xs-12 col-sm-9">
-      <products-item ng-show="isFiltered(product) " ng-repeat="product in products | filter: {title: nameSearch}" model="product">
+      <products-item ng-show="(inStock(product) && isFiltered(product))" ng-repeat="product in products | filter: {title: nameSearch}" model="product">
         <span ng-bind="searchProducts"></span>
       </products-item>
     </div>
+
   </div>
 
 </div>

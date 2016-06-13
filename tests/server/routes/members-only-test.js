@@ -6,21 +6,23 @@ var dbURI = 'postgres://localhost:5432/testing-fsg';
 var db = new Sequelize(dbURI, {
     logging: false
 });
-require('../../../server/db/models/user')(db);
+
+var app, User;
 
 var supertest = require('supertest');
 
-describe('Members Route', function () {
+xdescribe('Members Route', function () {
 
-    var app, User;
+    // var app;
 
     beforeEach('Sync DB', function () {
         return db.sync({ force: true });
     });
 
     beforeEach('Create app', function () {
-        app = require('../../../server/app')(db);
-        User = db.model('user');
+			User = require('../../../server/db/models/user');
+			app = require('../../../server/app');
+        // User = db.model('user');
     });
 
 	describe('Unauthenticated request', function () {
@@ -49,6 +51,9 @@ describe('Members Route', function () {
 		};
 
 		beforeEach('Create a user', function (done) {
+			User = require('../../../server/db/models/user');
+			app = require('../../../server/app');
+
 			return User.create(userInfo).then(function (user) {
                 done();
             }).catch(done);

@@ -18,7 +18,7 @@ describe('Product', function(){
       description: text, 
       price: 9.99,
       quantity: 10, 
-      category: ['Toys', 'Stretchy', 'Jokes'],
+      // category: ['Toys', 'Stretchy', 'Jokes'],
       photoUrl: 'https://img.buzzfeed.com/buzzfeed-static/static/2014-06/20/18/enhanced/webdr05/enhanced-buzz-wide-28782-1403302157-11.jpg'
     })
 	 	.then(function(createdProduct){
@@ -46,10 +46,10 @@ describe('Product', function(){
 		expect(product.quantity).to.equal(10);
 	});
 
-	it('has category than can accept more than one category stored in an array', function(){
-		expect(product.category).to.contain('Toys', 'Stretchy', 'Jokes');
-		expect(product.category.length).to.equal(3);
-	});
+	// it('has category than can accept more than one category stored in an array', function(){
+	// 	expect(product.category).to.contain('Toys', 'Stretchy', 'Jokes');
+	// 	expect(product.category.length).to.equal(3);
+	// });
 
 	it('has photoUrl of type url', function(){
 		expect(product.photoUrl).to.equal('https://img.buzzfeed.com/buzzfeed-static/static/2014-06/20/18/enhanced/webdr05/enhanced-buzz-wide-28782-1403302157-11.jpg');
@@ -117,20 +117,20 @@ describe('Product requirements', function(){
 	      });
   	});
 
-	it('requires category', function () {
-	    var product = Product.build({
-	    	title: 'Product1', 
-	    	price: 5.00,
-	    	quantity: 1,
-	    	description: 'Here is an absolutely riveting description'
-	    });
+	// it('requires category', function () {
+	//     var product = Product.build({
+	//     	title: 'Product1', 
+	//     	price: 5.00,
+	//     	quantity: 1,
+	//     	description: 'Here is an absolutely riveting description'
+	//     });
 
-	    return product.validate()
-	      .then(function(result) {
-	        expect(result).to.be.an('object');
-	        expect(result.message).to.contain('notNull Violation: category cannot be null');
-	      });
-  });
+	//     return product.validate()
+	//       .then(function(result) {
+	//         expect(result).to.be.an('object');
+	//         expect(result.message).to.contain('notNull Violation: category cannot be null');
+	//       });
+ //  });
 
 });
 

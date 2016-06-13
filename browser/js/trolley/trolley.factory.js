@@ -15,6 +15,10 @@ app.factory('TrolleyFactory', function($http, $state){
 		}, 
 		removeFromCart: function(itemToBeRemoved){
 			return $http.delete('/api/trolley/'+ itemToBeRemoved.id);
+		},
+		checkout: function(){
+			console.log('inside the checkout function');
+			$state.go('checkout');
 		}
 	};
 });
