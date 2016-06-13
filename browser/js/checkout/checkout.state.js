@@ -5,3 +5,10 @@ app.config(function ($stateProvider) {
         controller: 'CheckoutCtrl'
     });
 });
+
+app.config(function ($stateProvider) {
+    $stateProvider.state('confirmation', {
+        url: '/orders/confirmation',
+        templateUrl: 'js/checkout/confirmation.html'
+    });
+});
