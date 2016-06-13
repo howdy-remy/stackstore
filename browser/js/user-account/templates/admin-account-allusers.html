@@ -18,7 +18,7 @@
 			<th>{{user.email}}</th>
 			<th>{{user.isAdmin}}</th>
 			<th>
-				<button class="btn btn-default btn-xs" ng-click="deleteUser()" title="Delete user">
+				<button class="btn btn-default btn-xs" ng-click="deleteUser(user, $index)" title="Delete user">
 	        		<span class="glyphicon glyphicon-remove"></span>
 	        	</button>
 			</th>

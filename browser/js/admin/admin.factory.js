@@ -42,10 +42,9 @@ app.factory('AdminFactory', function($http, AuthService, $q){
 		})
 	};
 
-	console.log('IS THIS ANYTHING', this)
-	// AdminFactory.deleteUser = function(){
-	// 	return $http.delete('/api/users/' + id);
-	// }
+	AdminFactory.deleteUser = function(id){
+		return $http.delete('/api/users/' + id);
+	}
 
 	return AdminFactory; 
 
