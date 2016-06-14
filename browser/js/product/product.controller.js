@@ -21,10 +21,11 @@ app.controller('ProductCtrl', function ($scope, $state, ProductFactory, theProdu
 
 	AuthService.getLoggedInUser()
 	.then(function(user){
+		$scope.user = user; 
 		if(!user) $scope.isAdmin=false;
 		$scope.isAdmin = user.isAdmin;	
 	});
-	
+
 	$scope.updatePic = function(){
 		var updatedProductID = $scope.product.id;
 		var imageURL = window.prompt("Please input your image url address");
