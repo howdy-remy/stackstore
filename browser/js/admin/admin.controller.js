@@ -6,6 +6,11 @@ app.controller('adminCtrl', function($scope, allOrders, allProducts, allUsers, A
     $scope.products = allProducts;
     $scope.users = allUsers;
 
+    console.log($scope.orders)
+
+    $scope.sortType = 'id';
+    $scope.sortReverse = false; 
+
     $scope.toggleStatus = function(user) {
     	AdminFactory.updateStatus(user.id, { isAdmin: !user.isAdmin} );
 
