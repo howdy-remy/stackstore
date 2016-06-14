@@ -3,7 +3,7 @@ app.controller('TrolleyCtrl', function($scope, TrolleyFactory, trolley){
 	$scope.trolley = trolley;
 	$scope.amount = {};
 
-	// console.log($scope.trolley)
+	console.log("THE TROLLEY ", $scope.trolley)
 
 	var totalPrice = function(){
 		var tot = 0;
@@ -32,10 +32,13 @@ app.controller('TrolleyCtrl', function($scope, TrolleyFactory, trolley){
 
 	$scope.removeFromCart = function(item){
 		TrolleyFactory.removeFromCart(item)
-		$scope.trolley = $scope.trolley.filter(function(e){
-			return e.id !== item.id;
-		});
-		// console.log('new trolley', $scope.trolley)
+		.then(function(){
+			$scope.trolley = $scope.trolley.filter(function(e){
+				return e.id !== item.id;
+			});
+			$scope.tot = totalPrice();
+			// console.log('new trolley', $scope.trolley)
+		})
 	};
 	$scope.checkout = function(){
 		return TrolleyFactory.checkout();
