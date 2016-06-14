@@ -51,3 +51,22 @@ router.delete('/:id', function(req, res, next){
     })
     .catch(next);
 });
+
+//update user
+router.put('/:id', function(req, res, next){
+  //only admins should be able to do this!
+    User.findById(req.params.id)
+    .then(function (foundUser) {
+      if (!foundUser) {
+        var error = new Error();
+        error.status = 404;
+        throw error;
+      }
+      return foundUser.update(req.body);
+    })
+    .then(function (updatedUser) {
+      res.send(updatedUser);
+    })
+    .catch(next);
+
+});

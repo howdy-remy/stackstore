@@ -38,8 +38,8 @@ module.exports = db.define('order', {
 		}
 	}, 
 	status: {
-        type: Sequelize.ENUM('placed', 'shipped', 'delivered'),
-		defaultValue: 'placed'
+        type: Sequelize.ENUM('created', 'processing', 'completed', 'cancelled'),
+		defaultValue: 'created'
 	}, 
 	timePlaced: {
         type: Sequelize.DATE,

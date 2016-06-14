@@ -1,25 +1,76 @@
 <h3>All Orders</h3>
 
+<form>
+	<div class="form-group order-filter">
+        <div class="search-bar inner-addon right-addon">
+			<i class="glyphicon glyphicon-search"></i>
+			<input type="text" class="form-control" placeholder="Filter orders by status" ng-model="searchOrders">
+		</div>      
+	</div>
+</form>
+
 <table class="table" id="order-table">
 	<thead>
 		<tr>
 			<th></th>
-			<th>Order Number</th>
-			<th>Recipient</th>
-			<th>Order Date</th>
-			<th>Order Status</th>
+
+			<th>
+				<a href="#" ng-click="sortType='id'; sortReverse = !sortReverse">
+				Order Id
+        		<span ng-show="sortType == 'id' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+        		<span ng-show="sortType == 'id' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+				</a>
+			</th>
+			<th>
+				<a href="#" ng-click="sortType='lastName'; sortReverse = !sortReverse">
+				Recipient
+        		<span ng-show="sortType == 'lastName' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+        		<span ng-show="sortType == 'lastName' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+			</th>
+			<th>
+				<a href="#" ng-click="sortType='timePlaced'; sortReverse = !sortReverse">
+				Order Date
+        		<span ng-show="sortType == 'timePlaced' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+        		<span ng-show="sortType == 'timePlaced' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+			</th>
+			<th>
+				<a href="#" ng-click="sortType='status'; sortReverse = !sortReverse">
+				Status
+        		<span ng-show="sortType == 'status' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+        		<span ng-show="sortType == 'status' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+			</th>
+
 			<th></th>
 		</tr>
 	</thead>
 
 	<tbody>
-		<tr ng-repeat="order in orders">
-			<th></th>
-			<th >{{order.id}}</th>
+		<tr class="main-row" ng-repeat-start="order in orders | orderBy:sortType:sortReverse | filter:searchOrders">
+			<th>
+				<button ng-if="order.expanded" ng-click="order.expanded = false">-</button>
+            	<button ng-if="!order.expanded" ng-click="order.expanded = true">+</button>
+			</th>
+			<th>{{order.id}}</th>
 			<th>{{order.firstName}} {{order.lastName}}</th>
 			<th>{{order.timePlaced}}</th>
 			<th>{{order.status}}</th>
 			<th></th>			
+		</tr>
+		<tr ng-if="order.expanded" ng-repeat-end="" class="extra-row show" >
+			<td> 
+				Shipping address:<br> 
+				{{order.street}}<br>
+				{{order.city}}, {{order.state}} {{order.zip}}
+			</td>
+			<td> 
+				<select ng-model="newStatus.status">
+					<option>created</option>
+					<option>processing</option>
+					<option>completed</option>
+					<option>cancelled</option>
+				</select>
+				<button ng-click="changeOrderStatus(order)">Change status</button>
+			</td>
 		</tr>
 	</tbody>
 	
