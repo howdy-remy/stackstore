@@ -54,7 +54,8 @@ router.get('/:id', function(req,res,next){
 //edit a product
 router.put('/:id', function(req, res, next){
 	//only admins should be able do this!
-
+		console.log('this should be my product id ', req.params.id)
+		console.log('this should be the updated req.body ', req.body);
 		Product.findById(req.params.id)
 		.then(function (foundProduct) {
 			if (!foundProduct) {
