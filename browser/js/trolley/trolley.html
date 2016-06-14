@@ -1,22 +1,23 @@
 
+
 <table class='table' id='trolley-table'>
-  <thead>
+  <thead ng-show="trolley.length">
     <tr>
       <th></th>
       <th>Name</th>
-      <th>Price</th>
       <th>Quantity</th>
+      <th>Price</th>
       <th></th> 
     </tr>
   </thead>
-  <tbody>
+  <tbody ng-show="trolley.length">
     <tr ng-repeat="item in trolley">
       <td> 
         <a ui-sref="product({id: item.id})"><img ng-src="{{item.photoUrl}}"></a>
       </td>
       <td><a ui-sref="product({id: item.id})">{{ item.title }}</a></td>
-      <td>{{ item.price }}</td>
       <td><input type='number' ng-model='amount[item.id]' ng-value="{{ item.amount }}" min="0" max="{{ item.quantity }}"></td> 
+      <td>{{ item.price }}</td>
       <td>
         <button class="btn btn-default btn-xs" ng-click="removeFromCart(item)" title='delete trolley'>
             <span class="glyphicon glyphicon-remove"></span>
@@ -26,9 +27,17 @@
         </button>
       </td>
     </tr>
-        <button class="btn btn-default btn-m" ng-click="checkout()" title='checkout'>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <!-- <td>{{ totalPrice() | currency }}</td> -->
+      <td>{{ tot | currency }}</td>
+      <td><button class="btn btn-default btn-m" ng-click="checkout()" title='checkout'>
             <span class="glyphicon glyphicon-credit-card"></span> Checkout
-        </button>
+        </button></td>
+    </tr>
   </tbody>
+  <center><br /><br /><div ng-show="!trolley.length"><iframe src="//giphy.com/embed/PkOYwD4f26op2" width="480" height="267" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p>you don't have anything in your cart :(</p></div></center>
 </table>
 
