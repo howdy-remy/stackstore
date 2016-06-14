@@ -48,10 +48,19 @@
 			<th></th>			
 		</tr>
 		<tr ng-if="order.expanded" ng-repeat-end="" class="extra-row show" >
-			<td colspan=6> 
+			<td> 
 				Shipping address:<br> 
 				{{order.street}}<br>
 				{{order.city}}, {{order.state}} {{order.zip}}
+			</td>
+			<td> 
+				<select ng-model="newStatus.status">
+					<option>created</option>
+					<option>processing</option>
+					<option>completed</option>
+					<option>cancelled</option>
+				</select>
+				<button ng-click="changeOrderStatus(order)">Change status</button>
 			</td>
 		</tr>
 	</tbody>

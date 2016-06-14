@@ -6,13 +6,25 @@ app.controller('adminCtrl', function($scope, allOrders, allProducts, allUsers, A
     $scope.products = allProducts;
     $scope.users = allUsers;
 
-    console.log($scope.orders)
-
     $scope.sortType = 'id';
     $scope.sortReverse = false; 
 
-    $scope.toggleStatus = function(user) {
-    	AdminFactory.updateStatus(user.id, { isAdmin: !user.isAdmin} );
+    $scope.newStatus = { status: '' }
+
+    $scope.changeOrderStatus = function(order) {
+    	var newStatus = $scope.newStatus;
+    	AdminFactory.updateOrderStatus(order.id, newStatus);
+
+    	$scope.orders = $scope.orders.map(function(elem){
+    		if (elem.id === order.id) {
+    			elem.status = $scope.newStatus.status;
+    		}
+			return elem; 
+    	})
+    }
+
+    $scope.toggleAdminStatus = function(user) {
+    	AdminFactory.updateAdminStatus(user.id, { isAdmin: !user.isAdmin} );
 
     	$scope.users = $scope.users.map(function(elem){
     		if (elem.id === user.id) {

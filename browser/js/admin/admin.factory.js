@@ -46,11 +46,17 @@ app.factory('AdminFactory', function($http, AuthService, $q){
 		return $http.delete('/api/users/' + id);
 	}
 
-	AdminFactory.updateStatus = function(id, data){
+	AdminFactory.updateAdminStatus = function(id, data){
 		return $http.put('/api/users/' + id, data)
-		.then(function(something){
-			console.log('what is this thing', something);
-			return something; 
+		.then(function(data){
+			return data; 
+		})
+	}
+
+	AdminFactory.updateOrderStatus = function(id, data){
+		return $http.put('/api/orders/' + id, data)
+		.then(function(data){
+			return data; 
 		})
 	}
 
