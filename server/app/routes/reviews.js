@@ -1,15 +1,16 @@
 'use strict';
 var router = require('express').Router();
 var Review = require('../../db/models/review.js');
-// var User = require('../../db/models/user.js');
+var Index = require('../../db/index.js');
+var User = require('../../db/models/user.js');
 module.exports = router;
 
 //get all reviews
 router.get('/', function(req, res, next){
-
 	var whereObj = Object.keys(req.query).length ? req.query: {};	
 
 	Review.findAll({where: whereObj})
+	// Review.findAll(whereObj)
 	.then(function(reviews){
 		res.send(reviews);
 	})
@@ -76,4 +77,3 @@ router.delete('/:id', function(req, res, next){
 	})
 	.catch(next);
 });
-
