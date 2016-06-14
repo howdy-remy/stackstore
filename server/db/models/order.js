@@ -31,7 +31,7 @@ module.exports = db.define('order', {
 		}
 	},	
 	zip: {
-		type: Sequelize.INTEGER, 
+		type: Sequelize.STRING, 
 		allowNull: false,		
 		validate: {
 			len: [5]
