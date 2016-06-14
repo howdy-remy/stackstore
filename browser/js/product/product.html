@@ -3,6 +3,7 @@
 	  <div class="col-sm-4 single-product-page">
 	    <img src="{{product.photoUrl}}" />
 	  </div>
+	  <button ng-show="isAdmin" ng-click="updatePic()">Update Picture</button>
 	  <div class="col-sm-8">
 	  	<h2 contenteditable='{{isAdmin}}'
 	  		ng-model="newProduct.title"    
@@ -15,11 +16,9 @@
     		{{product.price}}
 <!--     		if we want the dollar sign, we need to remove it before updating the database -->
     	</h3>
-    	<h4 contenteditable='{{isAdmin}}' 
-	  		ng-model="newProduct.quantity"    
-    		ng-list="<br><br>">
-    		{{product.quantity}}
-    	</h4>
+    	<ul>
+    		<li ng-repeat='category in product.category'>{{category.name}}</li>
+    	</ul>
 	  	<p contenteditable='{{isAdmin}}' 
 	  		ng-model="newProduct.description"    
     		ng-list="<br><br>">

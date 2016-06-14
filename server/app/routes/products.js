@@ -21,6 +21,7 @@ router.get('/', function(req,res,next){
 //add a new product
 router.post('/', function(req, res, next){
 	//only admins should be able to do this!
+	console.log('im in the product post route');
 	Product.create(req.body)
 	.then(function(newProduct){
 		res.status(201); //created
@@ -28,7 +29,7 @@ router.post('/', function(req, res, next){
 	})
 	.catch(next);
 });
-
+//fetch all categories
 router.get('/categories', function(req, res, next){
 	Category.findAll()
 	.then(function(foundCategories){

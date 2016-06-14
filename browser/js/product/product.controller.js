@@ -3,7 +3,7 @@
 app.controller('ProductCtrl', function ($scope, $state, ProductFactory, theProduct, AuthService) {
 
 	$scope.product = theProduct;
-
+	
 	$scope.areEnough = function(){
 		if ($scope.product.quantity === 0) return false; 
 		else return true; 
@@ -25,7 +25,12 @@ app.controller('ProductCtrl', function ($scope, $state, ProductFactory, theProdu
 		$scope.isAdmin = user.isAdmin;	
 	});
 	
-	// $scope.newProduct = {};
+	$scope.updatePic = function(){
+		var updatedProductID = $scope.product.id;
+		var imageURL = window.prompt("Please input your image url address");
+		ProductFactory.updateProduct(updatedProductID, {photoUrl: imageURL});
+		$scope.product.photoUrl = imageURL;
+	};
 
 	$scope.logChanges = function(){
 		var updatedProductID = $scope.product.id;
