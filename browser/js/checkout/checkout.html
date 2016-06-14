@@ -1,46 +1,30 @@
 <form id="checkout-form" name="checkoutForm" ng-submit="checkoutForm.$valid && purchase(checkout)">
-
-    <alert type="danger" ng-show="error">
-        {{ error }}
-    </alert>
-<!-- MAKE ALL FIELDS REQUIRED!
- -->    
+  <alert type="danger" ng-show="error">
+    {{ error }}
+  </alert>
+  <!-- MAKE ALL FIELDS REQUIRED!-->
+  <div class="form-group">
+    <label for="firstName">First name</label>
+    <input type="text" ng-model="checkout.firstName" class="form-control" id="firstName" placeholder="Enter first name" required>
+    <label for="lastName">Last Name</label>
+    <input type="text" ng-model="checkout.lastName" class="form-control" id="lastName" placeholder="Enter last name" required>
+    <label for="email" ng-show="!user || !user.email">Email address</label>
+    <input type="text" ng-show="!user || !user.email" ng-model="checkout.email" class="form-control" id="email" placeholder="Enter email" ng-required="!user.email">
+  </div>
+  <div>
+    <label>Shipping Information</label>
     <div class="form-group">
-        <label for="firstName">First name</label>
-        <input type="text" ng-model="checkout.firstName" class="form-control" id="firstName" placeholder="Enter first name" required>
-    </div>    
-
-    <div class="form-group">
-        <label for="lastName">Last Name</label>
-        <input type="text" ng-model="checkout.lastName" class="form-control" id="lastName" placeholder="Enter last name" required>
+      <label for="street">Street</label>
+      <input type="text" ng-model="checkout.street" class="form-control" id="street" placeholder="Enter street" required>
+      <label for="city">City</label>
+      <input type="text" ng-model="checkout.city" class="form-control" id="city" placeholder="Enter city" required>
+      <label for="state">State</label>
+      <input type="text" ng-model="checkout.state" class="form-control" id="state" placeholder="Enter state" required>
+      <label for="zip">Zip</label>
+      <input type="text" ng-model="checkout.zip" class="form-control" id="zip" placeholder="Enter zip" required>
     </div>
-
-    <div class="form-group">
-        <label for="email">Email address</label>
-        <input type="text" ng-model="checkout.email" class="form-control" id="email" placeholder="Enter email" required>
-    </div>
-    <div>
-        <label>Shipping Information</label>
-            <div class="form-group">
-                <label for="street">Street</label>
-                <input type="text" ng-model="checkout.street" class="form-control" id="street" placeholder="Enter street" required>
-            </div>
-
-            <div class="form-group">
-                <label for="city">City</label>
-                <input type="text" ng-model="checkout.city" class="form-control" id="city" placeholder="Enter city" required>
-            </div>
-
-            <div class="form-group">
-                <label for="state">State</label>
-                <input type="text" ng-model="checkout.state" class="form-control" id="state" placeholder="Enter state" required>
-            </div>
-            <div class="form-group">
-                <label for="zip">Zip</label>
-                <input type="text" ng-model="checkout.zip" class="form-control" id="zip" placeholder="Enter zip" required>
-            </div>
-    </div>
-        <button class="btn btn-default btn-m" type="submit">
-            <span class="glyphicon glyphicon-ok-circle"></span> Complete Purchase
-        </button>
+  </div>
+  <button class="btn btn-default btn-m" type="submit">
+    <span class="glyphicon glyphicon-ok-circle"></span> Complete Purchase
+  </button>
 </form>
