@@ -6,7 +6,7 @@ app.factory('TrolleyFactory', function($http, $state){
 		}, 
 		addToCart: function(itemToBeAdded){
 			return $http.post('/api/trolley', itemToBeAdded)
-			.then(function(addedItem){
+			.then(function(){
 				$state.go('trolley');
 			});
 		},
