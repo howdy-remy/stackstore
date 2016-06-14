@@ -21,6 +21,7 @@ router.get('/', function (req, res, next) {
 //add a new product
 router.post('/', function (req, res, next) {
 	//only admins should be able to do this!
+	console.log('im in the product post route');
 	Product.create(req.body)
 		.then(function (newProduct) {
 			res.status(201); //created
@@ -55,6 +56,9 @@ router.get('/:id', function (req, res, next) {
 //edit a product
 router.put('/:id', function (req, res, next) {
 	//only admins should be able do this!
+		console.log('this should be my product id ', req.params.id)
+		console.log('this should be the updated req.body ', req.body);
+		Product.findById(req.params.id);
 
 	Product.findById(req.params.id)
 		.then(function (foundProduct) {

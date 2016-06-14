@@ -1,5 +1,5 @@
 <h3>All Products</h3>
-
+<button class='newProduct-button' ui-sref="userAccount.newProduct">Add new product</button>
 <table class="table" id="order-table">
 	<thead>
 		<tr>
@@ -13,7 +13,7 @@
 	</thead>
 
 	<tbody>
-		<tr ng-repeat="product in products" ui-sref="product({id: product.id})">
+		<tr class="main-row" ng-repeat="product in products | orderBy: 'id'" ui-sref="product({id: product.id})">
 			<th><img class="product-preview" src="{{product.photoUrl}}"></th>
 			<th >{{product.id}}</th>
 			<th>{{product.title}}</th>

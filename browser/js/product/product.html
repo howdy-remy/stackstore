@@ -1,20 +1,37 @@
 <div class="container">
-
 	<div class="row">
-
 	  <div class="col-sm-4 single-product-page">
 	    <img src="{{product.photoUrl}}" />
 	  </div>
-
+	  <button ng-show="isAdmin" ng-click="updatePic()">Update Picture</button>
 	  <div class="col-sm-8">
-	  	<h2>{{product.title}}</h2>
-	  	<h3>{{product.price | currency }}</h3>
-			<p>{{product.description}}</p>
-			<add-to-cart ng-if="areEnough()" item="product"></add-to-cart>
-	  	<h3 ng-show="!areEnough()">Shame! Looks like we are out of this...</h3>
-	  </div>
+	  	<h2 contenteditable='{{isAdmin}}'
+	  		ng-model="newProduct.title"    
+    		ng-list="<br><br>">
+    		{{product.title}}
+    	</h2>
+    	<h3 contenteditable='{{isAdmin}}' 
+	  		ng-model="newProduct.price"    
+    		ng-list="<br><br>">
+    		{{product.price}}
+<!--     		if we want the dollar sign, we need to remove it before updating the database -->
+    	</h3>
+    	<ul>
+    		<li ng-repeat='category in product.category'>{{category.name}}</li>
+    	</ul>
+	  	<p contenteditable='{{isAdmin}}' 
+	  		ng-model="newProduct.description"    
+    		ng-list="<br><br>">
+    		{{product.description}}
+    	</p>
+    	<button class='changes-button' ng-show="isAdmin" ng-click="logChanges()">Save Changes</button>
+		<add-to-cart ng-if="areEnough()" item="product"></add-to-cart>
 
-	</div>
+	  	<h3 ng-show="!areEnough()">Shame! Looks like we are out of this...</h3>
+	  
+	  </div>
+	</div> 
+	<!-- end of product page -->
 
 	<div class="review">
 
