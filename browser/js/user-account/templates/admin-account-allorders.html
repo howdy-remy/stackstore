@@ -13,13 +13,23 @@
 	</thead>
 
 	<tbody>
-		<tr ng-repeat="order in orders">
-			<th></th>
-			<th >{{order.id}}</th>
+		<tr class="main-row" ng-repeat-start="order in orders | orderBy: 'id'">
+			<th>
+				<button ng-if="order.expanded" ng-click="order.expanded = false">-</button>
+            	<button ng-if="!order.expanded" ng-click="order.expanded = true">+</button>
+			</th>
+			<th>{{order.id}}</th>
 			<th>{{order.firstName}} {{order.lastName}}</th>
 			<th>{{order.timePlaced}}</th>
 			<th>{{order.status}}</th>
 			<th></th>			
+		</tr>
+		<tr ng-if="order.expanded" ng-repeat-end="" class="extra-row show" >
+			<td colspan=6> 
+				Shipping address:<br> 
+				{{order.street}}<br>
+				{{order.city}}, {{order.state}} {{order.zip}}
+			</td>
 		</tr>
 	</tbody>
 	

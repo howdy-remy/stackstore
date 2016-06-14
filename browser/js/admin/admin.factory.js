@@ -46,6 +46,14 @@ app.factory('AdminFactory', function($http, AuthService, $q){
 		return $http.delete('/api/users/' + id);
 	}
 
+	AdminFactory.updateStatus = function(id, data){
+		return $http.put('/api/users/' + id, data)
+		.then(function(something){
+			console.log('what is this thing', something);
+			return something; 
+		})
+	}
+
 	return AdminFactory; 
 
 })

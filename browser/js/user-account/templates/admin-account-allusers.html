@@ -6,20 +6,27 @@
 			<th></th>
 			<th>User ID</th>
 			<th>User Email</th>
+			<th>Delete</th>
 			<th>Admin Status</th>
-			<th></th>
 		</tr>
 	</thead>
 
 	<tbody>
-		<tr ng-repeat="user in users">
+		<tr ng-repeat="user in users | orderBy: 'id'">
 			<th></th>
 			<th>{{user.id}}</th>
 			<th>{{user.email}}</th>
-			<th>{{user.isAdmin}}</th>
 			<th>
 				<button class="btn btn-default btn-xs" ng-click="deleteUser(user, $index)" title="Delete user">
 	        		<span class="glyphicon glyphicon-remove"></span>
+	        	</button>
+			</th>
+			<th>
+				<button ng-disabled="isAdmin(user)" class="btn btn-default btn-xs" ng-click="toggleStatus(user)">Make Admin
+	        	</button>
+			</th>
+			<th>
+				<button ng-disabled="!isAdmin(user)" class="btn btn-default btn-xs" ng-click="toggleStatus(user)">Remove Admin
 	        	</button>
 			</th>
 			<th></th>			
