@@ -3,7 +3,7 @@ app.controller('TrolleyCtrl', function($scope, TrolleyFactory, trolley){
 	$scope.trolley = trolley;
 	$scope.amount = {};
 
-	console.log($scope.trolley)
+	// console.log($scope.trolley)
 
 	var totalPrice = function(){
 		var tot = 0;
@@ -17,25 +17,25 @@ app.controller('TrolleyCtrl', function($scope, TrolleyFactory, trolley){
 
 	$scope.updateCart = function(item){
 
+		var ind = $scope.trolley.indexOf(item);
+		$scope.trolley[ind].amount = $scope.amount[item.id];
+		$scope.tot = totalPrice();
+
 		if ($scope.amount[item.id] === 0){
 			$scope.removeFromCart(item);
 		}
 		else {
-			var ind = $scope.trolley.indexOf(item);
-			$scope.trolley[ind].amount = $scope.amount[item.id];
-			$scope.tot = totalPrice();
 			 TrolleyFactory.updateCart(item, $scope.amount)
 		}
 
 	};
 
 	$scope.removeFromCart = function(item){
-		return TrolleyFactory.removeFromCart(item)
-		.then(function(){
-			$scope.trolley = $scope.trolley.filter(function(e){
-				return e.id !== item.id;
-			});
+		TrolleyFactory.removeFromCart(item)
+		$scope.trolley = $scope.trolley.filter(function(e){
+			return e.id !== item.id;
 		});
+		// console.log('new trolley', $scope.trolley)
 	};
 	$scope.checkout = function(){
 		return TrolleyFactory.checkout();
