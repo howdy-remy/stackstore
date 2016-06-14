@@ -8,6 +8,7 @@ var Products = require('../../db/models/product.js');
 var Promise = require('bluebird');
 
 var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport('smtps://wwwgh1604%40gmail.com:gracehopper@smtp.gmail.com');
 
 
 router.post('/checkout', function(req, res, next) {
@@ -30,7 +31,6 @@ router.post('/checkout', function(req, res, next) {
                 }) //end of promise.map
                 .then(function() {
                     // set up nodemailer transport
-                    var transporter = nodemailer.createTransport('smtps://wwwgh1604%40gmail.com:gracehopper@smtp.gmail.com');
                     // console.log("the order is", order)
                     // console.log("the trolley is", req.session.trolley)
                     var address = order.dataValues.firstName + " " + order.dataValues.lastName
@@ -116,7 +116,9 @@ router.get('/:id', function (req, res, next) {
 //update an order
 //only admins should be able do this!
 router.put('/:id', function (req, res, next) {
-
+// created, processing, completed, cancelled
+// processing = your order has been shipped
+// completed = your order has been delivered
   Order.findById(req.params.id)
     .then(function (foundOrder) {
       if (!foundOrder) {
@@ -126,8 +128,44 @@ router.put('/:id', function (req, res, next) {
       }
       return foundOrder.update(req.body);
     })
-    .then(function (updatedOrder) {
-      res.send(updatedOrder);
+    .then(function(updatedOrder) {
+      User.findById(updatedOrder.userId)
+      .then(function(user){
+        var output = "";
+        var subject = "";
+        switch (req.body.status) {
+          case 'processing':
+            subject = "Your order is on its way!";
+            output = "We've sent out your order and you should get it soon!";
+            break;
+          case 'completed':
+            subject = "Your order is completed!";
+            output = "Your items have been delivered and that completes your order. Thanks again for shopping with us!";
+            break;
+          case 'cancelled':
+            subject = "Your order has been cancelled.";
+            output = "Just letting you know that we've cancelled your order. Hope you shop again with us soon!";
+            break;
+          default:
+            //
+        }
+        
+        var mailOptions = {
+            from: '"Weasleys Wizard Wheezes 🎩" <wwwgh1604@gmail.com>', // sender address
+            to: user.dataValues.email, // list of receivers
+            subject: subject, // Subject line
+            text: output // plaintext body
+            // html: '<b>Hello world 🐴</b>' // html body
+        };
+
+        transporter.sendMail(mailOptions, function(error, info){
+            if(error){
+                return console.log(error);
+            }
+            console.log('Message sent: ' + info.response);
+        });
+        res.send(updatedOrder);
+      });
     })
     .catch(next);
 
