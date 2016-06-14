@@ -1,5 +1,14 @@
 <h3>All Orders</h3>
 
+<form>
+	<div class="form-group order-filter">
+        <div class="search-bar inner-addon right-addon">
+			<i class="glyphicon glyphicon-search"></i>
+			<input type="text" class="form-control" placeholder="Filter orders by status" ng-model="searchOrders">
+		</div>      
+	</div>
+</form>
+
 <table class="table" id="order-table">
 	<thead>
 		<tr>
@@ -36,7 +45,7 @@
 	</thead>
 
 	<tbody>
-		<tr class="main-row" ng-repeat-start="order in orders | orderBy:sortType:sortReverse">
+		<tr class="main-row" ng-repeat-start="order in orders | orderBy:sortType:sortReverse | filter:searchOrders">
 			<th>
 				<button ng-if="order.expanded" ng-click="order.expanded = false">-</button>
             	<button ng-if="!order.expanded" ng-click="order.expanded = true">+</button>

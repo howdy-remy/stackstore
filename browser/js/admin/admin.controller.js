@@ -9,7 +9,8 @@ app.controller('adminCtrl', function($scope, allOrders, allProducts, allUsers, A
     $scope.sortType = 'id';
     $scope.sortReverse = false; 
 
-    $scope.newStatus = { status: '' }
+    $scope.newStatus = { status: '' };
+    $scope.searchOrders   = '';
 
     $scope.changeOrderStatus = function(order) {
     	var newStatus = $scope.newStatus;
