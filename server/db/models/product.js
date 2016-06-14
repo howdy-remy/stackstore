@@ -25,7 +25,8 @@ module.exports = db.define('product', {
 	// 	allowNull: false
 	// },
 	photoUrl: {
-		type: Sequelize.STRING
+		type: Sequelize.STRING,
+		defaultValue: "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=78144099"
 	}
 }
 // ,{
