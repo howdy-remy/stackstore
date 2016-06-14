@@ -45,13 +45,6 @@ module.exports = db.define('order', {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW		
 	},
-	email: {
-		type: Sequelize.STRING,
-		allowNull: false,
-		validate: {
-			isEmail: true
-		}
-	}, 
 	firstName: {
 		type: Sequelize.STRING, 
 		allowNull: false		

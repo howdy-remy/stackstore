@@ -4,20 +4,19 @@ module.exports = router;
 
 //getting all items in the trolley from the session
 //check if persists after user login!!!!!!!
-router.get('/', function(req, res, next){
-	console.log('the trolley in the main get', req.session.trolley);
+router.get('/', function(req, res){
 	res.send(req.session.trolley);
 });
 
 //adding an item to the trolley
-router.post('/', function(req, res, next){
+router.post('/', function(req, res){
 	req.body.amount = req.body.amount ? req.body.amount+1 : 1; //amount of product wanted (add only one to cart at start)
 	let found = false;
 
 	if(!req.session.trolley){
 		req.session.trolley = [];
 	} else {
-		for(let i =0; i < req.session.trolley.length; i++){
+		for(let i = 0; i < req.session.trolley.length; i++){
 			if(req.session.trolley[i].id === req.body.id){
 				req.session.trolley[i].amount++;
 				found = true;
@@ -30,7 +29,7 @@ router.post('/', function(req, res, next){
 });
 
 ///to update quantity/amount in cart
-router.put('/', function(req, res, next){ 
+router.put('/', function(req, res){ 
 	let index = null;
 	req.session.trolley.forEach(function(item, i){
 		if(item.id === req.body.id){ index = i; }
@@ -44,9 +43,9 @@ router.put('/', function(req, res, next){
 });
 
 ///to delete an item from the cart
-router.delete('/:id', function(req, res, next){ 
+router.delete('/:id', function(req, res){ 
 	req.session.trolley = req.session.trolley.filter(function(item){
-		return item.id != req.params.id;
+		return item.id !== req.params.id;
 	});
 	res.sendStatus(204);
 });

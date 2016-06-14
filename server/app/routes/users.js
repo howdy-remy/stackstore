@@ -1,5 +1,5 @@
 var router = require('express').Router();
-var Review = require('../../db/models/review.js');
+// var Review = require('../../db/models/review.js');
 var User = require('../../db/models/user.js');
 module.exports = router;
 
