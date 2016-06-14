@@ -32,6 +32,13 @@ app.factory('ProductFactory', function ($http) {
       .then(getData);
   };
 
+  ProductFactory.updateProduct = function(productID, updatedProduct) {
+    console.log('this is the product in the factory ', productID);
+    console.log('type of updated product ', updatedProduct);
+    return $http.put('/api/products/' + productID, updatedProduct)
+    .then(getData);
+  };
+
   return ProductFactory;
 
 });

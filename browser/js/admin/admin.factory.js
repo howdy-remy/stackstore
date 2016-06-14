@@ -1,6 +1,6 @@
 'use strict'; 
 
-app.factory('AdminFactory', function($http, AuthService, $q){
+app.factory('AdminFactory', function($http, AuthService, $q, $state){
 
 	var AdminFactory = {};
 
@@ -15,7 +15,7 @@ app.factory('AdminFactory', function($http, AuthService, $q){
 			var orders = results[1]; 
 			admin.orders = orders; 
 			return admin;
-		})
+		});
 	};	
 
 	AdminFactory.fetchOrders = function(){
@@ -23,7 +23,7 @@ app.factory('AdminFactory', function($http, AuthService, $q){
 		.then(getData) 
 		.then(function (orders) {
 			return orders;
-		})
+		});
 	};
 
 	AdminFactory.fetchProducts = function(){
@@ -31,7 +31,15 @@ app.factory('AdminFactory', function($http, AuthService, $q){
 		.then(getData) 
 		.then(function (products) {
 			return products;
-		})
+		});
+	};
+
+	AdminFactory.addProduct = function(newProduct){
+		console.log('in the add product factory');
+		return $http.post('/api/products', newProduct)
+		.then(function (product) {
+			$state.go('products');
+		});
 	};
 
 	AdminFactory.fetchUsers = function(){
@@ -39,7 +47,7 @@ app.factory('AdminFactory', function($http, AuthService, $q){
 		.then(getData) 
 		.then(function (users) {
 			return users;
-		})
+		});
 	};
 
 	AdminFactory.deleteUser = function(id){

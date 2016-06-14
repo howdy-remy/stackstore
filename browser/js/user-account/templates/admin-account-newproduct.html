@@ -1,0 +1,47 @@
+<form id="newproduct-form" name="newproductForm" ng-submit="newproductForm.$valid && addProduct(newproduct)">
+
+    <alert type="danger" ng-show="error">
+        {{ error }}
+    </alert>   
+    <div class="form-group">
+        <label for="title">Product Title</label>
+        <input type="text" ng-model="newproduct.title" class="form-control" id="title" placeholder="Enter product title" required>
+    </div>    
+
+    <div class="form-group">
+        <label for="description">Product Description</label>
+        <textarea ng-model="newproduct.description" class="form-control" id="description" placeholder="Enter product description" required> </textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="price">Product Price</label>
+        <input type="text" ng-model="newproduct.price" class="form-control" id="price" placeholder="Enter product price" required>
+    </div>
+    <div class="form-group">
+        <label for="quantity">Product Quantity</label>
+        <input type="text" ng-model="newproduct.quantity" class="form-control" id="quantity" placeholder="Enter initial product quantity" required>
+    </div>
+    <div class="form-group">
+        <label for="categories">Product Categories</label>
+        <button class="btn btn-default btn-xs" ng-click='addCategory(newproduct)'>
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+        <br>
+        <ul class='addedcategories'>
+            <li ng-repeat='productCategory in productCategories'>{{productCategory}}</li>
+        </ul>
+<!--         <input type="text" ng-model="newproduct.categories" class="form-control" id="categories" placeholder="Select product categories" required> -->
+        <select ng-model='newproduct.category'>  
+            <option ng-repeat='category in categories'value="{{category.name}}">{{category.name}}</option>
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <label for="photoUrl">Product Image URL Address</label>
+        <input type="text" ng-model="newproduct.photoUrl" class="form-control" id="photoUrl" placeholder="Enter product image URL addressphotoUrl">
+    </div>
+        <button class="btn btn-default btn-m" type="submit">
+            <span class="glyphicon glyphicon-plus"></span> Add Product
+        </button>
+</form>

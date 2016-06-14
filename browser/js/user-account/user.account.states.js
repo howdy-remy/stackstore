@@ -18,6 +18,9 @@ app.config(function($stateProvider){
 			},
 			allUsers: function(AdminFactory){
 				return AdminFactory.fetchUsers();
+			},
+			allCategories: function(ProductFactory){
+				return ProductFactory.fetchCategories();
 			}			
 		}
 	});
@@ -51,5 +54,10 @@ app.config(function($stateProvider){
 		templateUrl: 'js/user-account/templates/admin-account-allusers.html',
 		controller: 'adminCtrl'
 	}); 
+	$stateProvider.state('userAccount.newProduct', {
+		url: '/newproduct',
+		templateUrl: 'js/user-account/templates/admin-account-newproduct.html',
+		controller: 'adminCtrl'
+	});
 	
-})
+});
