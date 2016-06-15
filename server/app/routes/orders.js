@@ -3,13 +3,13 @@ var router = require('express').Router();
 module.exports = router;
 var Order = require('../../db/models/order.js');
 var User = require('../../db/models/user.js');
-
 var Products = require('../../db/models/product.js');
-var Promise = require('bluebird');
 
+var stripe = require('stripe')('sk_test_6LvVfVvp7tjUWeEDvN5NOt5D');
 var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport('smtps://wwwgh1604%40gmail.com:gracehopper@smtp.gmail.com');
 
+var Promise = require('bluebird');
 
 router.post('/checkout', function(req, res, next) {
     Promise.all([
@@ -45,7 +45,6 @@ router.post('/checkout', function(req, res, next) {
                       to: req.body.email, // list of receivers
                       subject: 'Your order has been placed!', // Subject line
                       text: 'Hi ' + order.dataValues.firstName + ', your order has been placed and the details are below. Thanks for shopping with us! You will receive another email when your order has shipped.\n\nAddress:\n\n' + address + "\n\nOrder Summary:\n\n" + orderSum // plaintext body
-                      // html: '<b>Hello world 🐴</b>' // html body
                   };
 
                   // send mail with defined transport object
@@ -60,17 +59,32 @@ router.post('/checkout', function(req, res, next) {
                 })
                 .then(function() {
                     req.session.trolley = []; //4) clear the trolley on the session
-                    res.sendStatus(201);
+                    res.send(order);
                 })
                 .catch(next);
         });
 });
 
-// router.post('/email', function (req, res, next) { //to send comfirmation email to user
-//  //i think we need to npm install nodemailer and use this to send an email
-//  //we are clearing the trolley before this step, may need to clear it after email is sent
+router.post('/chargecard', function(req, res, next){
+	var stripeToken = req.body.stripe.id;
+	var orderId = req.body.order.id;
 
-// });
+	Order.findOne({where:{id: orderId}})
+	.then(function(order){
+		return order.getOrderTotal();
+	}).then(function(total){
+		var charge = stripe.charges.create({
+		  amount: total*100, // amount in cents, again
+		  currency: "usd",
+		  source: stripeToken,
+		  description: "Example charge"
+		}, function(err, charge) {
+		  if (err && err.type === 'StripeCardError') {
+		    console.log('the card has been declined');
+		  }
+		});
+	});
+});
 
 //get all orders
 router.get('/', function (req, res, next) {
