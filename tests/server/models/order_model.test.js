@@ -20,7 +20,7 @@ describe('Orders', function(){
       city: 'Sydney',
       state: 'TX', 
       zip: 55555,
-      status: 'shipped', 
+      status: 'created', 
       email: 'psherman@findme.com', 
       firstName: 'Peter', 
       lastName: 'Sherman'
@@ -74,7 +74,7 @@ it('belongs to a user', function() {
       city: 'Sydney',
       state: 'TX', 
       zip: 55555,
-      status: 'shipped', 
+      status: 'created', 
       email: 'psherman', 
       firstName: 'Peter', 
       lastName: 'Sherman'
@@ -95,7 +95,7 @@ it('belongs to a user', function() {
       city: 'Sydney',
       state: 'ZZ', 
       zip: 55555,
-      status: 'shipped', 
+      status: 'created', 
       email: 'psherman@findme.com', 
       firstName: 'Peter', 
       lastName: 'Sherman'

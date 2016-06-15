@@ -9,7 +9,7 @@ app.config(function($stateProvider){
 		resolve: {
 			theUser: function(UserFactory, $stateParams){
 				return UserFactory.fetchById($stateParams.userId);
-			}, 			
+			},		
 			allOrders: function(AdminFactory){
 				return AdminFactory.fetchOrders();
 			},

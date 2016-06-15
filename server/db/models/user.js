@@ -43,6 +43,13 @@ module.exports =
                         model: db.model('user'), 
                         where: { id: this.id }
                     }]
+                    // include: [{
+                    //     model: db.model('product'), 
+                    //     include: [{
+                    //         model: db.model('user'), 
+                    //         where: { id: this.id }
+                    //     }]
+                    // }]
                 })
             }
         },
