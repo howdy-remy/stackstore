@@ -45,7 +45,7 @@ router.put('/', function(req, res){
 ///to delete an item from the cart
 router.delete('/:id', function(req, res){ 
 	req.session.trolley = req.session.trolley.filter(function(item){
-		return item.id !== req.params.id;
+		return item.id != req.params.id;
 	});
 	res.sendStatus(204);
 });
