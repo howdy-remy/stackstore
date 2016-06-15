@@ -59,7 +59,7 @@ router.post('/checkout', function(req, res, next) {
                 })
                 .then(function() {
                     req.session.trolley = []; //4) clear the trolley on the session
-                    res.sendStatus(201);
+                    res.send(order);
                 })
                 .catch(next);
         });

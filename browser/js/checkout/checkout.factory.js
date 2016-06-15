@@ -1,7 +1,6 @@
 app.factory('CheckoutFactory', function ($http, $state) {
 	return {
 		purchase: function (order, user, code, result) {
-			console.log('order', order, 'user', user,'code', code, 'result', result)
 			if (user) order.email = user.email;
 			return $http.post('/api/orders/checkout', order)
 				.then(function (order) {
