@@ -21,7 +21,7 @@
         <label for="quantity">Product Quantity</label>
         <input type="text" ng-model="newproduct.quantity" class="form-control" id="quantity" placeholder="Enter initial product quantity" required>
     </div>
-    <div class="form-group">
+<!--     <div class="form-group">
         <label for="categories">Product Categories</label>
         <button class="btn btn-default btn-xs" ng-click='addCategory(newproduct)'>
             <span class="glyphicon glyphicon-plus"></span>
@@ -30,11 +30,10 @@
         <ul class='addedcategories'>
             <li ng-repeat='productCategory in productCategories'>{{productCategory}}</li>
         </ul>
-<!--         <input type="text" ng-model="newproduct.categories" class="form-control" id="categories" placeholder="Select product categories" required> -->
         <select ng-model='newproduct.category'>  
             <option ng-repeat='category in categories'value="{{category.name}}">{{category.name}}</option>
         </select>
-    </div>
+    </div> -->
 
 
     <div class="form-group">

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-static-top">
 
-    <fullstack-logo></fullstack-logo>
+    
 
     <div class="container">
 
@@ -13,25 +13,25 @@
         </div>
 
         <!-- THE BLACK BAR WITH USER NAV -->
-        <div class="navbar-header">
-
-            <ul class="nav navbar-nav-left">
-
+        <div class="navbar-header"> 
+            <fullstack-logo></fullstack-logo>
+            <!-- <h3 id='storename'>Weasley's Wizarding Wheezes</h3> -->
+<!--             <ul class="nav navbar-nav-left">
                 <li ng-repeat="item in items" ng-show="!item.auth || isLoggedIn()">
                     <a ui-sref-active="active" ui-sref="{{ item.state }}">{{ item.label }}
                     </a>
                 </li>
-
-            </ul>
+            </ul> -->
             
             <ul class="nav navbar-nav-right">
-
+                <li ng-repeat="item in items" ng-show="!item.auth || isLoggedIn()">
+                    <a ui-sref-active="active" ui-sref="{{ item.state }}">{{ item.label }}
+                    </a>
+                </li>
                 <li ng-show="!user" ui-sref-active="active" ui-sref="signup">Sign Up!</li>
                 <li ng-show="!user" ui-sref-active="active" ui-sref="login">Login</li>
-                
                 <li ng-show="user" ui-sref="userAccount({ userId: user.id})">My Account</li>
                 <li ng-show="user" ng-click="logout()">Logout</li>
-
             </ul>
             
         </div>

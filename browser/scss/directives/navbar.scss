@@ -8,6 +8,7 @@ navbar {
     background: white;
     outline: none !important;
     margin-right: 10px;
+    padding: auto;
   }
 
   .container {
@@ -23,7 +24,7 @@ navbar {
       margin-bottom: 10px;
       p {
         color: #E8B149;
-        font-family: Pistilli; 
+        // font-family: Pistilli; 
         font-size: 1vw;
         float:right;
         margin: 0px;
@@ -39,8 +40,14 @@ navbar {
     display: block;
     padding: 0px;
     line-height: 60px;
-    padding-left: 15px;
+    padding-left: 150px;
     padding-right: 15px;
+    height: 100px;
+  }
+
+  #storename {
+    text-align: center;
+    position: relative;
   }
 
   fullstack-logo {
@@ -63,7 +70,7 @@ navbar {
     cursor: pointer;
     transition: color 0.2s;
     color: white;
-    font-family: Pistilli;
+    // font-family: Pistilli;
     font-size: 1vw;
     padding: 0px;
     &.active {
@@ -81,10 +88,10 @@ navbar {
   .navbar-nav-right {
     float: right;
   }
-  .navbar-nav-left {
-    float: left;
-    padding-left: 20%;
-  }
+  // .navbar-nav-left {
+  //   float: left;
+  //   padding-left: 20%;
+  // }
 
   .container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
     margin-right: 0px;

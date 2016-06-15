@@ -4,6 +4,10 @@
 
 body {
   background: white;
+//   background: url("http://o.aolcdn.com/hss/storage/midas/ce16e49e6d36c7140d80e8d3d0d5e94f/203657234/Hogwarts+Castle+lights-WWoHP+at+USH.jpg") repeat fixed center center/
+// cover rgba(0,0,0,0);
+  // font: 20px "Amatic SC", cursive;
+  font: 20px 'Galdeano', sans-serif;
 }
 
 @mixin clearfix {
@@ -15,18 +19,18 @@ body {
 }
 
 #main {
-  padding-top: 60px;
+  // padding-top: 60px;
   margin: 0 auto;
 }
 
-@font-face {
-    font-family: Pistilli;
-    src: url('pistilli-roman-webfont.woff2') format('woff2'),
-         url('pistilli-roman-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+// @font-face {
+//     font-family: Pistilli;
+//     src: url('pistilli-roman-webfont.woff2') format('woff2'),
+//          url('pistilli-roman-webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
 
-}
+// }
 
 @import 'directives/main';
 @import 'home/main';

@@ -3,7 +3,7 @@
 	  <div class="col-sm-4 single-product-page">
 	    <img src="{{product.photoUrl}}" />
 	  </div>
-	  <button ng-show="isAdmin" ng-click="updatePic()">Update Picture</button>
+
 	  <div class="col-sm-8">
 	  	<h2 contenteditable='{{isAdmin}}'
 	  		ng-model="newProduct.title"    
@@ -24,6 +24,7 @@
     		ng-list="<br><br>">
     		{{product.description}}
     	</p>
+    	<button class='update-button' ng-show="isAdmin" ng-click="updatePic()">Update Picture</button>
     	<button class='changes-button' ng-show="isAdmin" ng-click="logChanges()">Save Changes</button>
 		<add-to-cart ng-if="areEnough()" item="product"></add-to-cart>
 

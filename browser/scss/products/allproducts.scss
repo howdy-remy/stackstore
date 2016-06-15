@@ -3,10 +3,14 @@ products-item {
 	width:200px;
 	padding: 20px;
 	display: inline-block;
-	img {
-		width: 160px;
-		height: 300px;
-		padding: 0px;
+	
+	.crop {
+		width : auto;
+     	height : 180px;
+     	background-repeat: no-repeat;
+     	background-size: cover;
+     	background-position: center;
+
 	}
 }
 
@@ -60,6 +64,7 @@ products-item > div:after {
 
 products-item:hover > div:before,
 products-item:hover > div:after {
+	margin: auto;
 	height:100%;
 	-webkit-transition: height .3s linear;
 	transition: height .3s linear;
@@ -147,9 +152,9 @@ ul li {
 	text-align: center;
 }
 
-.trolley-button, .changes-button{
+.trolley-button, .changes-button, .update-button, .checkout-button, .newProduct-button{
 	border-radius: 5px;
-	width: 100%;
+	width: 150px;
     background-color: white; 
     border: none;
     color: black;
@@ -164,9 +169,14 @@ ul li {
     border: 2px solid #DBA745;
     /*cursor: pointer;*/
 }
-
-.trolley-button:hover {
+.newProduct-button{
+	float: right;
+	margin: 15px 5px;
+}
+#allproducts{
+	float: left;
+}
+.trolley-button:hover, .changes-button:hover , .update-button:hover, .checkout-button:hover, .newProduct-button:hover{
 	background-color: #DBA745; 
     color: white;
 }
-
