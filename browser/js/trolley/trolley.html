@@ -15,7 +15,7 @@
       </td>
       <td><a ui-sref="product({id: item.id})">{{ item.title }}</a></td>
       <td><input type='number' ng-model='amount[item.id]' ng-value="{{ item.amount }}" min="0" max="{{ item.quantity }}"></td> 
-      <td>{{ item.price }}</td>
+      <td><span ng-class="{'strikethrough-price': discountApplied}">{{ item.price }}</span><br /><span ng-show="discountApplied" ng-class="{'discount-price': true }">{{ item.price * 0.79 | currency}}</span></td>
       <td>
         <button class="btn btn-default btn-xs" ng-click="removeFromCart(item)" title='delete trolley'>
             <span class="glyphicon glyphicon-remove"></span>
@@ -27,9 +27,20 @@
     </tr>
     <tr>
       <td colspan="2"></td>
+      <td>Promo:</td>
+      <!-- <td>{{ totalPrice() | currency }}</td> -->
+      <td><input ng-model="promocode"></input></td>
+      <td>
+        <button class="btn btn-default btn-m checkout-button" ng-click="applyDiscount(promocode)" title='promo'>
+            <span class="glyphicon glyphicon-tag"></span> Apply
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
       <td>Total:</td>
       <!-- <td>{{ totalPrice() | currency }}</td> -->
-      <td>{{ tot | currency }}</td>
+      <td><span ng-class="{'strikethrough-price': discountApplied}">{{ tot | currency }}</span><br /><span ng-show="discountApplied" ng-class="{'discount-price': true }">{{ tot * 0.79 | currency }}</span></td>
       <td>
         <button class="btn btn-default btn-m checkout-button" ng-click="checkout()" title='checkout'>
             <span class="glyphicon glyphicon-credit-card"></span> Checkout

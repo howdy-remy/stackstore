@@ -18,7 +18,7 @@ app.factory('TrolleyFactory', function($http, $state){
 			return $http.delete('/api/trolley/'+ itemToBeRemoved.id);
 		},
 		checkout: function(){
-			console.log('inside the checkout function');
+			// console.log('inside the checkout function');
 			$state.go('checkout');
 		}
 	};
