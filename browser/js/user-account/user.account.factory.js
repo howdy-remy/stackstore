@@ -30,6 +30,14 @@ app.factory('UserFactory', function ($http, AuthService, $q) {
 			})
 	};
 
+	UserFactory.fetchOrderById = function(id) {
+		return $http.get('api/orders/' + id)
+		.then(getData)
+		.then(function(order){
+			return order; 
+		})
+	}
+
 	return UserFactory;
 
 })

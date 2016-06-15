@@ -19,7 +19,7 @@ app.controller('signupCtrl', function ($scope, AuthService, $state) {
             $state.go('products');
         })
         .catch(function () {
-            $scope.error = 'Invalid login credentials.';
+            $scope.error = 'R U U-KNOW-WHO? You did not provide valid signup credentials.';
         });
     };
 

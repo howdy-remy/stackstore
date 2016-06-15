@@ -20,7 +20,7 @@ app.controller('LoginCtrl', function ($scope, AuthService, $state) {
         AuthService.login(loginInfo).then(function () {
             $state.go('home');
         }).catch(function () {
-            $scope.error = 'Invalid login credentials.';
+            $scope.error = 'Mischief not managed... it seems your login information is incorrect.';
         });
 
     };

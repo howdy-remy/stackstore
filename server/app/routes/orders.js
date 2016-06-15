@@ -3,7 +3,6 @@ var router = require('express').Router();
 module.exports = router;
 var Order = require('../../db/models/order.js');
 var User = require('../../db/models/user.js');
-
 var Products = require('../../db/models/product.js');
 var Promise = require('bluebird');
 
@@ -100,7 +99,12 @@ router.post('/', function (req, res, next) {
 //get a single order
 router.get('/:id', function (req, res, next) {
 
-  Order.findById(req.params.id)
+  Order.findOne({ 
+    where: { 
+      id: req.params.id 
+    }, 
+    include: [Products]
+   })
     .then(function (foundOrder) {
       if (!foundOrder) {
         var error = new Error();
@@ -109,7 +113,7 @@ router.get('/:id', function (req, res, next) {
       }
       res.send(foundOrder);
     })
-    .catch(next);
+    .catch(next)
 
 });
 
