@@ -4,7 +4,7 @@ app.controller('CheckoutCtrl', function ($scope, CheckoutFactory, AuthService) {
 			$scope.user = user;
 		});
 
-	$scope.purchase = function (order) {
-		return CheckoutFactory.purchase(order, $scope.user);
+	$scope.purchase = function (code, result) {
+		return CheckoutFactory.purchase($scope.checkout, $scope.user, code, result);
 	};
 });

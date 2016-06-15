@@ -1,4 +1,4 @@
-<form id="checkout-form" name="checkoutForm" ng-submit="checkoutForm.$valid && purchase(checkout)">
+<form id="checkout-form" name="checkoutForm" stripe-form="purchase">
   <alert type="danger" ng-show="error">
     {{ error }}
   </alert>
@@ -24,6 +24,31 @@
       <input type="text" ng-model="checkout.zip" class="form-control" id="zip" placeholder="Enter zip" required>
     </div>
   </div>
+  <div>
+    <label>Payment Information</label>
+    <span class="payment-errors"></span>
+    <div class="form-row">
+      <label>
+        <span>Card Number</span>
+          <input ng-model="number" placeholder="Card Number" payments-format="card" payments-validate="card" />
+      </label>
+    </div>
+    <div class="form-row">
+      <label>
+        <span>Expiration (MM/YY)</span>
+        <input ng-model="expiry" placeholder="Expiration" payments-format="expiry" payments-validate="expiry"/>
+
+      </label>
+      
+    </div>
+    <div class="form-row">
+      <label>
+        <span>CVC</span>
+        <input ng-model="cvc" placeholder="CVC" payments-format="cvc" payments-validate="cvc"/>
+      </label>
+    </div>
+  </div>
+  <!-- <input type="submit" class="submit" value="Submit Payment"> -->
   <button class="btn btn-default btn-m" type="submit">
     <span class="glyphicon glyphicon-ok-circle"></span> Complete Purchase
   </button>
