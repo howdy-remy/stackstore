@@ -1,10 +1,12 @@
 fullstack-logo {
   display: block;
   img {
-    position: absolute;
-	top: 0px;
-    left: 5%;
-    width: 186px;
-    height: 203px;
+    position: relative;
+	// top: 0px;
+    // left: 5%;
+    width: auto;
+    height: 100px;
+    float: left;
+    // padding-left: 20%;
   }
 }
