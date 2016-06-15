@@ -44,6 +44,16 @@ app.controller('TrolleyCtrl', function($scope, TrolleyFactory, trolley){
 		return TrolleyFactory.checkout();
 	};
 
+	$scope.discountApplied = false;
+
+	$scope.applyDiscount = function(code){
+		if (code === "WAGEGAP" && !$scope.discountApplied) {
+			$scope.promocode ="";
+			$scope.discountApplied = true;
+		}
+	}
+
+
 
 
 });
