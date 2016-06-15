@@ -2,31 +2,6 @@
 
 <p ng-hide="orders.length">You have no orders yet! We're sure you can find <a href="http://localhost:1337/products">something</a> you like... </p>
 
-<!-- <table class="table" id="order-table">
-	<thead>
-		<tr>
-			<th></th>
-			<th>Order Number</th>
-			<th>Recipient</th>
-			<th>Order Date</th>
-			<th>Order Status</th>
-			<th></th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<tr ng-repeat="order in orders">
-			<th></th>
-			<th>{{order.id}}</th>
-			<th>{{order.firstName}} {{order.lastName}}</th>
-			<th>{{order.timePlaced}}</th>
-			<th>{{order.status}}</th>
-			<th></th>			
-		</tr>
-	</tbody>
-	
-</table> -->
-
 <table class="table" id="order-table">
 	<thead>
 		<tr>
@@ -75,16 +50,35 @@
 			<th></th>			
 		</tr>
 		<tr ng-if="order.expanded" ng-repeat-end="" class="extra-row show" >
-			<td> 
+			<td colspan="2"> 
 				Shipping address:<br> 
 				{{order.street}}<br>
 				{{order.city}}, {{order.state}} {{order.zip}}
 			</td>
-			<td> 
-				Order products should go here. 
-				<ul>
-					<li ng-repeat="products in order.products">{{products.title}}</li>
-				</ul>
+			<td colspan="3"> 
+				<table class="table" id="orderProducts-table">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Product Id</th>
+							<th>Quantity Purchased</th>
+							<th>Price</th>
+							<th></th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr ng-repeat="product in orderProducts">
+							<th></th>
+							<th class="order-products" ui-sref="product({id: product.productId})">{{product.productId}}</th>
+							<th>{{product.amount}}</th>
+							<th>{{product.price | currency}}</th>
+							<th></th>			
+						</tr>
+					</tbody>
+					
+				</table>
+
 			</td>
 		</tr>
 	</tbody>

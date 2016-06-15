@@ -19,18 +19,13 @@ app.controller('userCtrl', function($scope, theUser, UserFactory){
     $scope.sortReverse = false; 
 
     $scope.getOrderDetails = function(id){
-    	return UserFactory.fetchOrderById(id)
+    	UserFactory.fetchOrderById(id)
     	.then(function(order){
+    		$scope.orderProducts = [];
     		order.products.forEach(function(el){
-	    		$scope.orderProducts.push(el);
+	    		$scope.orderProducts.push(el.orderProducts);
     		})
     	})
-    	console.log('scopeorder', $scope.orderProducts)
     }
 
 })
-
-// name
-// quantity
-// price
-// subtotal
