@@ -11,7 +11,7 @@ app.controller('adminCtrl', function($scope, allOrders, allProducts, allUsers, A
     $scope.sortReverse = false; 
 
     $scope.newStatus = { status: '' };
-    $scope.searchOrders   = '';
+    $scope.searchOrders = '';
 
 	$scope.addProduct = function(newProduct){
 		return AdminFactory.addProduct(newProduct);

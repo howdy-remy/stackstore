@@ -21,18 +21,26 @@ app.controller('ProductsCtrl', function ($scope, allProducts, allCategories) {
 	};
 
 	$scope.isFiltered = function(product){
-
 		var checkedCategories = $scope.categories.filter(function(e){
 			return e.checked;
 		});
 
 		if(checkedCategories.length === 0) return true;
 		else {
-			return product.categories.some(function(e){
-				for (var i = 0; i < checkedCategories.length; i++) {
-					return checkedCategories[i].name === e.name;
-				}
-			});
+			for (var i = 0; i < product.categories.length; i++) {
+				for (var j = 0; j < checkedCategories.length; j++) {
+					if (product.categories[i].name === checkedCategories[j].name){
+						return true;
+					}
+					
+				};
+			};
+			return false;
+			// return product.categories.some(function(e){
+			// 	for (var i = 0; i < checkedCategories.length; i++) {
+			// 		return checkedCategories[i].name === e.name;
+			// 	}
+			// });
 		}
 	};
 
