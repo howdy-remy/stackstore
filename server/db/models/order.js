@@ -2,6 +2,7 @@
 
 var Sequelize = require('sequelize');
 var db = require('../_db');
+var orderProducts = require('./orderProducts');
 
 module.exports = db.define('order', {
 
@@ -53,13 +54,19 @@ module.exports = db.define('order', {
 		type: Sequelize.STRING, 
 		allowNull: false
 	}
+},
+{
+	instanceMethods: {
+		getOrderTotal: function(){
+			return orderProducts.findAll({where: {orderId: this.id}})
+			.then(function(products){
+				var total = products.reduce(function(prev, curr){
+					return prev + (Number(curr.price) * Number(curr.amount));
+				}, 0);
+				console.log('HERE IS THE TOTAL', total);
+				return total;
+			});
+		}
+	}
 }
-// {
-// 	hooks: {
-// 		afterCreate: function(order, ){
-// //2) update Products model to reduce the stock quantities by the number of items ordered
-// //3) update the price and amount fields in the OrderProducts model
-// 		}
-// 	}
-// }
 );

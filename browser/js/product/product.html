@@ -10,11 +10,11 @@
     		ng-list="<br><br>">
     		{{product.title}}
     	</h2>
+<!--     		if we want the dollar sign, we need to remove it before updating the database -->
     	<h3 contenteditable='{{isAdmin}}' 
 	  		ng-model="newProduct.price"    
     		ng-list="<br><br>">
     		{{product.price}}
-<!--     		if we want the dollar sign, we need to remove it before updating the database -->
     	</h3>
     	<ul>
     		<li ng-repeat='category in product.category'>{{category.name}}</li>

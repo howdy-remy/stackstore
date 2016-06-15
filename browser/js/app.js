@@ -1,5 +1,5 @@
 'use strict';
-window.app = angular.module('FullstackGeneratedApp', ['fsaPreBuilt', 'ui.router', 'ui.bootstrap', 'ngAnimate']);
+window.app = angular.module('FullstackGeneratedApp', ['fsaPreBuilt', 'ui.router', 'ui.bootstrap', 'ngAnimate', 'angularPayments']);
 
 app.config(function ($urlRouterProvider, $locationProvider) {
     // This turns off hashbang urls (/#about) and changes it to something normal (/about)
@@ -13,6 +13,8 @@ app.config(function ($urlRouterProvider, $locationProvider) {
     $urlRouterProvider.when('/products/:productId', '/products/:productId/reviews');
 
     $urlRouterProvider.when('/account/:userId', '/account/:userId/info');
+
+    window.Stripe.setPublishableKey('pk_test_LLQXAmlcdB6jgi4zqWQooACy');
 });
 
 // This app.run is for controlling access to specific states.

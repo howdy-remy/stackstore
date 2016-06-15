@@ -3,8 +3,10 @@ var router = require('express').Router();
 module.exports = router;
 var Order = require('../../db/models/order.js');
 var User = require('../../db/models/user.js');
-
 var Products = require('../../db/models/product.js');
+
+var stripe = require('stripe')('sk_test_6LvVfVvp7tjUWeEDvN5NOt5D');
+
 var Promise = require('bluebird');
 
 
@@ -17,7 +19,7 @@ router.post('/checkout', function (req, res, next) {
 			return order.setUser(user[0]); //associate the order and user
 		})
 		.then(function (order) {
-			return Promise.map(req.session.trolley, function (item) { //2) update Products model to reduce the stock quantities by the number of items ordered
+			Promise.map(req.session.trolley, function (item) { //2) update Products model to reduce the stock quantities by the number of items ordered
 					return Products.findOne({ where: { id: item.id } })
 						.then(function (originalProduct) {
 							return originalProduct.update({quantity: originalProduct.quantity - item.amount}, { where: { id: item.id } });
@@ -28,10 +30,35 @@ router.post('/checkout', function (req, res, next) {
 				}) //end of promise.map
 				.then(function () {
 					req.session.trolley = []; //4) clear the trolley on the session
-					res.sendStatus(201);
+					res.send(order);
 				})
 				.catch(next);
 		});
+});
+
+router.post('/chargecard', function(req, res, next){
+	var stripeToken = req.body.stripe.id;
+	var orderId = req.body.order.id;
+
+	Order.findOne({where:{id: orderId}})
+	.then(function(order){
+		return order.getOrderTotal();
+	}).then(function(total){
+		console.log('THIS IS THE TOTAL in /chargecard',total);
+
+		var charge = stripe.charges.create({
+		  amount: total*100, // amount in cents, again
+		  currency: "usd",
+		  source: stripeToken,
+		  description: "Example charge"
+		}, function(err, charge) {
+			console.log('error', err, 'charge', charge);
+		  if (err && err.type === 'StripeCardError') {
+		    console.log('the card has been declined');
+		  }
+		});
+	});
+	// .catch(next);
 });
 
 // router.post('/email', function (req, res, next) { //to send comfirmation email to user
