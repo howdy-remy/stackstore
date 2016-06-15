@@ -14,6 +14,7 @@ app.factory('TrolleyFactory', function($http, $state){
 			return $http.put('/api/trolley', {id: itemToBeUpdated.id, amount: amount});
 		}, 
 		removeFromCart: function(itemToBeRemoved){
+			console.log('in the factory', itemToBeRemoved)
 			return $http.delete('/api/trolley/'+ itemToBeRemoved.id);
 		},
 		checkout: function(){
