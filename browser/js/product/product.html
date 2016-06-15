@@ -41,7 +41,7 @@
 			<div>
 				<ul class="nav nav-tabs">
 			    <li ui-sref-active="active"><a ui-sref="product.reviews">ALL</a></li>
-			    <li ui-sref-active="active"><a ui-sref="product.writeReview">WRITE A REVIEW</a></li>
+			    <li ng-show="user" ui-sref-active="active"><a ui-sref="product.writeReview">WRITE A REVIEW</a></li>
 				</ul>
 				<ui-view></ui-view>
 			</div>
