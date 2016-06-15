@@ -10,8 +10,9 @@ app.config(function ($urlRouterProvider, $locationProvider) {
     $urlRouterProvider.when('/auth/:provider', function () {
         window.location.reload();
     }); 
-    $urlRouterProvider.when('/products/:productId', '/products/:productId/reviews');
 
+    $urlRouterProvider.when('/', '/products');
+    $urlRouterProvider.when('/products/:productId', '/products/:productId/reviews');
     $urlRouterProvider.when('/account/:userId', '/account/:userId/info');
 
     window.Stripe.setPublishableKey('pk_test_LLQXAmlcdB6jgi4zqWQooACy');

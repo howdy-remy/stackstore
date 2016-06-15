@@ -43,16 +43,13 @@ var data = {
 	],
 
 	products: [{
-		product: { title: 'Decoy Detonator', description: "Need to create a diversion to sneak past some Ministry employees? Then here's just the thing! You can twist the key at the top to set it up. Rolling action is friction activated. You just pull it back, release and off it goes.", price: 34.99, quantity: 10, photoUrl: 'http://www.wizardingworldharrypotter.com/wp-content/uploads/Weasleys24.JPG' },
+		product: { title: 'Decoy Detonator', description: "Need to create a diversion to sneak past some Ministry employees? Then here's just the thing! You can twist the key at the top to set it up. Rolling action is friction activated. You just pull it back, release and off it goes.", price: 34.99, quantity: 10, photoUrl: 'https://img.buzzfeed.com/buzzfeed-static/static/2014-06/20/18/enhanced/webdr02/enhanced-buzz-wide-11895-1403302127-7.jpg' },
 		categories: [{name: 'general'}, {name: 'defense'}],
 	}, {
-			product: { title: 'Puking Pastilles', description: "Help skive off classes with our Puking Pastilles! They make the eater vomit within seconds of eating it. Part of our Skiving Snackbox line.", price: 34.99, quantity: 10, photoUrl: "http://vignette3.wikia.nocookie.net/harrypotter/images/0/03/Rubby_'O'_Chicken_(Weasleys'_Wizard_Wheezes_product).JPG/revision/latest?cb=20091118204322" },
+		product: { title: 'Chinese Fortune Sticks', description: "Kau Cim or Kau Chim is a fortune telling practice that originated in China in which the querent (person asking the question) requests answers from a sacred oracle lot. ", price: 7.99, quantity: 10, photoUrl: "http://d3b8erylo0uriu.cloudfront.net/wp-content/uploads/2014/07/Weasleys-Wizard-Wheezes-7.jpg" },
 		categories: [{name: 'edibles'}]
 	}, {
-		product: { title: 'Fainting Fancies', description: "Need to skip a class? These large & round orange and lemon flavored gummies are just the thing you need! Part of our Skiving Snackbox line.", price: 7.99, quantity: 10, photoUrl: "http://d3b8erylo0uriu.cloudfront.net/wp-content/uploads/2014/07/Weasleys-Wizard-Wheezes-7.jpg" },
-		categories: [{name: 'edibles'}]
-	}, {
-		product: { title: 'Fever Fudge', description: "Fever Fudge is designed to make the one who eats it get a high fever within seconds of eating it. Some side effects may occur. Part of our Skiving Snackbox line.", price: 7.99, quantity: 10, photoUrl: "http://vignette1.wikia.nocookie.net/harrypotter/images/5/55/Jumping_Snakes_(Weasleys'_Wizard_Wheezes_product).JPG/revision/latest?cb=20091118072231" },
+		product: { title: 'Fever Fudge', description: "Fever Fudge is designed to make the one who eats it get a high fever within seconds of eating it. Some side effects may occur. Part of our Skiving Snackbox line.", price: 7.99, quantity: 10, photoUrl: "https://c1.staticflickr.com/7/6142/5934639807_8fe4d96c58_b.jpg" },
 		categories: [{name: 'edibles'}]
 	}, {
 		product: { title: 'Nosebleed Nougat', description: "The most popular of our Skiving Snackboxes! Make the eater's nose bleed heavily within seconds!", price: 7.99, quantity: 10, photoUrl: 'http://i.imgur.com/FkwdJmJ.jpg' },
@@ -70,8 +67,8 @@ var data = {
 		product: { title: 'Beguiling Bubbles Love Potion', description: "Love Potion from our exclusive WonderWitch line!", price: 49.99, quantity: 10, photoUrl: 'http://i.imgur.com/zAoA1rg.jpg' },
 		categories: [{name: 'edibles'}, {name: 'wonderwitch'}]
 	}, {
-		product: { title: 'Twilight Moonbeams Love Potion', description: "Love Potion from our exclusive WonderWitch line!", price: 49.99, quantity: 10, photoUrl: "http://ecx.images-amazon.com/images/I/91dyjpyW3UL.jpg" },
-		categories: [{name: 'edibles'}, {name: 'wonderwitch'}]
+		product: { title: 'Nose Biting Tea Cup', description: "A Nose-Biting Teacup is presumably an ordinary-looking teacup that has been jinxed to bite the nose of anyone who tries to drink out of it.", price: 49.99, quantity: 10, photoUrl: "http://ecx.images-amazon.com/images/I/91dyjpyW3UL.jpg" },
+		categories: [{name: 'edibles'}, {name: 'wonderwitch'}, {name: 'general'}]
 	}, {
 		product: { title: 'Ton-Tongue Toffee', description: "Grow your tongue four feet long! Or somebody elses...", price: 8.99, quantity: 10, photoUrl: "http://elbrooklyntaco.com/wp-content/uploads/2012/04/ton-tongue-toffee-honeydukes-orlando.jpg" },
 		categories: [{name: 'edibles'}]
@@ -79,20 +76,20 @@ var data = {
 		product: { title: 'Whoopie Cushion', description: "Muggle novelty!", price: 7.99, quantity: 10, photoUrl: 'http://www.wizardingworldharrypotter.com/wp-content/uploads/Weasleys23.JPG' },
 		categories: [{name: 'muggle'}]
 	}, {
-		product: { title: 'Deck of Cards', description: "Standard Muggle Deck of Cards. 52 Cards, 4 suits, hours of fun!", price: 14.99, quantity: 10, photoUrl: "http://www.havegeekwilltravel.com/wp-content/uploads/2015/02/DSC_8314-1024x678.jpg" },
+		product: { title: 'Chocolate Cauldron', description: "Chocolate Cauldrons are boxed chocolates that are filled with Firewhiskey and presumably shaped like cauldrons", price: 14.99, quantity: 10, photoUrl: "http://www.havegeekwilltravel.com/wp-content/uploads/2015/02/DSC_8314-1024x678.jpg" },
 		categories: [{name: 'muggle'}]
 	}, {
-		product: { title: 'Glasses Disguise', description: "Authentic Muggle glasses and moustache disguise.", price: 12.99, quantity: 10, photoUrl: 'http://www.wizardingworldharrypotter.com/wp-content/uploads/Weasleys31.JPG' },
+		product: { title: 'Muggle Magic Juggling Balls', description: "Entertain the muggle way! Learn to juggle without magic using these muggle juggling balls", price: 12.99, quantity: 10, photoUrl: 'http://www.wizardingworldharrypotter.com/wp-content/uploads/Weasleys31.JPG' },
 		categories: [{name: 'muggle'}]
 	}, {
-		product: { title: 'Pygmy Puff', description: "Miniature puffskeins with pink or purle fur. Adorable!", price: 34.99, quantity: 10, photoUrl:"http://40.media.tumblr.com/98ea922e1302ad595be434824db2dcb4/tumblr_nlqprsb2nD1sxmfino3_1280.jpg" },
+		product: { title: 'Sticky Trainers', description: "Sticky Trainers are yellow trainers with suction cups attached to the soles. The wearer can use them to climb walls and presumably to walk across ceilings as well.", price: 34.99, quantity: 10, photoUrl:"http://40.media.tumblr.com/98ea922e1302ad595be434824db2dcb4/tumblr_nlqprsb2nD1sxmfino3_1280.jpg" },
 		categories: [{name: 'wonderwitch'}]
 	}, {
 		product: { title: 'Peruvian Instant Darkness Powder', description: "Caught in a sticky situation and need a quick escape? This powder will fill a room with darkness allowing you to run to safety.", price: 49.99, quantity: 10, photoUrl: 'http://www.wizardingworldharrypotter.com/wp-content/uploads/Weasleys29.JPG' },
 		categories: [{name: 'general'}, {name: 'defense'}]
 	}, {
-		product: { title: 'Shield Hats', description: "Hats with a built in shield-charm.", price: 19.99, quantity: 10, photoUrl: 'http://www.wizardingworldharrypotter.com/wp-content/uploads/Weasleys32.JPG' },
-		categories: [{name: 'general'}, {name: 'defense'}, {name:'apparel'}]
+		product: { title: 'Pepper Imps', description: "They are tiny black peppermint sweets that make your target smoke at the ears and nose", price: 19.99, quantity: 10, photoUrl: 'http://www.wizardingworldharrypotter.com/wp-content/uploads/Weasleys32.JPG' },
+		categories: [{name: 'general'}, {name: 'edibles'}]
 	}, {
 		product: { title: 'U No Poo', description: "WHY ARE YOU WORRYING ABOUT YOU-KNOW-WHO? YOU SHOULD BE WORRYING ABOUT U-NO-POO, THE CONSTIPATION SENSATION THAT'S GRIPPING THE NATION!", price: 9.99, quantity: 10, photoUrl: "https://s-media-cache-ak0.pinimg.com/736x/96/95/23/9695236060e1576da77a8c31c9071b85.jpg" },
 		categories: [{name: 'edibles'}]

@@ -3,6 +3,7 @@ products-item {
 	width:200px;
 	padding: 20px;
 	display: inline-block;
+	vertical-align: top;
 	
 	.crop {
 		width : auto;
@@ -76,6 +77,14 @@ ul li {
 	margin: 0;
 	list-style-type: none;
 	padding-left: 7px;
+}
+
+.refine-product {
+	position: relative;
+	top: 150px;
+	form{
+		width: 80%;
+	}
 }
 
 .category-selection li div {
