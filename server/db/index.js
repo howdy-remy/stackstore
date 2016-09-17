@@ -1,4 +1,4 @@
-	'use strict';
+'use strict';
 
 var db = require('./_db');
 // var Sequelize = require('sequelize');
@@ -12,6 +12,7 @@ var Category = require('./models/category');
 
 //ORDER+PRODUCT ASSOCIATIONS//
 Order.belongsTo(User);
+User.hasMany(Order);
 
 Order.belongsToMany(Product, {
 	through: orderProducts
@@ -25,9 +26,10 @@ Product.belongsToMany(Order, {
 Product.belongsToMany(Category, {through: 'product_category'});
 Category.belongsToMany(Product, {through: 'product_category'});
 
-
 Review.belongsTo(User);
+User.hasMany(Review);
 Review.belongsTo(Product);
+Product.hasMany(Review);
 
 module.exports = db;
 
